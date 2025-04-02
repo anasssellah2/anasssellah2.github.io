@@ -600,8 +600,12 @@
                 </div>
                 
                 <div class="contact-form">
+                    <!-- Success Message -->
+<div id="form-success" style="display:none; background:#25D366; color:white; padding:15px; margin:20px 0; border-radius:5px; text-align:center;">
+    <i class="fas fa-check-circle"></i> Message sent! I'll contact you shortly.
+</div>
     <h3>Contact Me</h3>
-    <form action="https://formsubmit.co/anass.sellah@gmail.com" method="POST">
+    <form action="https://formsubmit.co/anass.sellah@gmail.com" method="POST" onsubmit="showSuccess()">
         <!-- FormSubmit Configuration -->
         <input type="hidden" name="_captcha" value="false">
         <input type="hidden" name="_subject" value="New Delivery Request - SwiftRider">
@@ -763,5 +767,14 @@
     }
 </style>
 
+    <script>
+function showSuccess() {
+    const successDiv = document.getElementById('form-success');
+    successDiv.style.display = 'block';
+    setTimeout(() => successDiv.style.display = 'none', 5000);
+    successDiv.scrollIntoView({ behavior: 'smooth' });
+}
+</script>
+    
 </body>
 </html>
