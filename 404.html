@@ -1,20 +1,17 @@
 <!DOCTYPE html>
 <script>
-  // Extract language code from URL (e.g., /ar/ → 'ar')
-  const lang = window.location.pathname.match(/\/([a-z]{2})\//)?.[1];
+  const lang = window.location.pathname.split('/')[1];
+  const supported = ['ar', 'fr', 'es', 'en'];
   
-  // Supported languages
-  const supportedLangs = ['ar', 'fr', 'es', 'en'];
-  
-  if (supportedLangs.includes(lang)) {
-    // Save language and redirect
+  if (supported.includes(lang)) {
+    // Save to both localStorage AND session
     localStorage.setItem('preferredLanguage', lang);
-    window.location.href = window.location.origin + '/?lang=' + lang;
+    sessionStorage.setItem('tempLang', lang);
+    window.location.href = '/?lang=' + lang;
   } else {
-    // Show actual 404 page
     document.body.innerHTML = `
-      <h1>Page Not Found</h1>
-      <p><a href="/">Go to homepage</a></p>
+      <h1>404 - Page Not Found</h1>
+      <a href="/">Go Home</a>
     `;
   }
 </script>
