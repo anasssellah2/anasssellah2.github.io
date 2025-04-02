@@ -1366,20 +1366,42 @@
             }, 5000);
         }
     </script>
+    
 <script>
-// Language detection (order of priority)
-const lang = new URLSearchParams(window.location.search).get('from') || 
-             localStorage.getItem('preferredLanguage') || 
-             navigator.language.substring(0, 2);
+  // Language detection with priority:
+  // 1. URL parameter (?lang=es)
+  // 2. sessionStorage (tempLang)
+  // 3. localStorage (preferredLanguage)
+  // 4. Browser language
+  // 5. Default to English
+  
+  const urlLang = new URLSearchParams(window.location.search).get('lang');
+  const tempLang = sessionStorage.getItem('tempLang');
+  const storedLang = localStorage.getItem('preferredLanguage');
+  const browserLang = navigator.language.substring(0, 2);
+  const supported = ['ar', 'fr', 'es', 'en'];
 
-// Set language if supported
-if (['ar', 'fr', 'es', 'en'].includes(lang)) {
+  let lang = 'en'; // Default
+  
+  if (urlLang && supported.includes(urlLang)) {
+    lang = urlLang;
+  } else if (tempLang && supported.includes(tempLang)) {
+    lang = tempLang;
+    sessionStorage.removeItem('tempLang'); // Clean up
+  } else if (storedLang && supported.includes(storedLang)) {
+    lang = storedLang;
+  } else if (supported.includes(browserLang)) {
+    lang = browserLang;
+  }
+
+  // Apply language
   setLanguage(lang);
-  // Clean up URL (e.g., change /?from=fr to /fr/)
-  if (window.location.search.includes('from=')) {
+  updateLanguageFlag(lang);
+
+  // Clean URL after loading (e.g., /?lang=es → /es/)
+  if (urlLang) {
     history.replaceState({}, '', '/' + lang + '/');
   }
-}
 </script>
     
 </body>
