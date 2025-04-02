@@ -606,7 +606,10 @@
 </div>
     <h3>Contact Me</h3>
     <form action="https://formsubmit.co/anass.sellah@gmail.com" 
-      method="POST" 
+      method="POST"
+      onsubmit="showSuccess(); return true;"> 
+        <input type="hidden" name="_next" value="https://anasssellah2.github.io/#contact" />
+        
       onsubmit="event.preventDefault(); showSuccess(); setTimeout(() => this.submit(), 3000);">
         <!-- FormSubmit Configuration -->
         <input type="hidden" name="_captcha" value="false">
@@ -775,7 +778,7 @@ function showSuccess() {
     successDiv.style.display = 'block';
     successDiv.scrollIntoView({ behavior: 'smooth' });
     
-    // Optional: Hide after 5 seconds
+    // Hide after 5 seconds (optional)
     setTimeout(() => {
         successDiv.style.display = 'none';
     }, 5000);
