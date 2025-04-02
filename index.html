@@ -915,11 +915,21 @@
                         
                         <!-- WhatsApp Alternative -->
                         <div style="text-align:center; margin-top:20px; padding-top:15px; border-top:1px solid #eee;">
-                            <p data-translate="form.whatsapp.text">For urgent requests:</p>
-                            <a href="https://wa.me/212694135281" style="background:#25D366; color:white; padding:10px 20px; border-radius:5px; display:inline-block; margin-top:10px;">
-                                <i class="fab fa-whatsapp"></i> <span data-translate="form.whatsapp.button">Chat on WhatsApp</span>
-                            </a>
-                        </div>
+    <p data-translate="form.urgent.text">For urgent requests:</p>
+    <div style="display: flex; gap: 15px; justify-content: center; margin-top: 10px;">
+        <!-- WhatsApp Button -->
+        <a href="https://wa.me/212694135281" style="background:#25D366; color:white; padding:10px 20px; border-radius:5px; display:inline-flex; align-items:center; gap:8px; text-decoration:none;">
+            <i class="fab fa-whatsapp"></i>
+            <span data-translate="form.whatsapp.button">Chat on WhatsApp</span>
+        </a>
+        
+        <!-- Call Button -->
+        <a href="tel:+212694135281" style="background:#075E54; color:white; padding:10px 20px; border-radius:5px; display:inline-flex; align-items:center; gap:8px; text-decoration:none;">
+            <i class="fas fa-phone"></i>
+            <span data-translate="form.call.button">Call Now</span>
+        </a>
+    </div>
+</div>
                     </form>
                 </div>
             </div>
@@ -990,6 +1000,7 @@
         // Translations object
         const translations = {
             en: {
+                
                 // Navigation
                 "nav.home": "Home",
                 "nav.services": "Services",
@@ -1056,8 +1067,14 @@
                 // Popup
                 "popup.title": "Choose Your Language",
                 "popup.text": "Welcome to SwiftRider! Please select your preferred language."
+                en: {
+    // ... all existing English translations ...
+    "form.urgent.text": "For urgent requests:",
+    "form.call.button": "Call Now"
+},  // <-- Add before this comma
             },
             fr: {
+                
                 // Navigation
                 "nav.home": "Accueil",
                 "nav.services": "Services",
@@ -1124,8 +1141,14 @@
                 // Popup
                 "popup.title": "Choisissez Votre Langue",
                 "popup.text": "Bienvenue chez SwiftRider ! Veuillez sélectionner votre langue préférée."
+                fr: {
+    // ... all existing French translations ...
+    "form.urgent.text": "Pour demandes urgentes :",
+    "form.call.button": "Appeler maintenant"
+},
             },
             ar: {
+                
                 // Navigation
                 "nav.home": "الصفحة الرئيسية",
                 "nav.services": "الخدمات",
@@ -1192,8 +1215,14 @@
                 // Popup
                 "popup.title": "اختر لغتك",
                 "popup.text": "مرحبًا بكم في سويفت رايدر! يرجى اختيار لغتك المفضلة."
+                ar: {
+    // ... all existing Arabic translations ...
+    "form.urgent.text": "للطلبات العاجلة:",
+    "form.call.button": "اتصل الآن"
+},
             },
             es: {
+             
                 // Navigation
                 "nav.home": "Inicio",
                 "nav.services": "Servicios",
@@ -1260,6 +1289,11 @@
                 // Popup
                 "popup.title": "Elige tu Idioma",
                 "popup.text": "Bienvenido a SwiftRider. Por favor selecciona tu idioma preferido."
+                   es: {
+    // ... all existing Spanish translations ...
+    "form.urgent.text": "Para solicitudes urgentes:",
+    "form.call.button": "Llamar ahora"
+}  // <-- No comma here
             }
         };
 
