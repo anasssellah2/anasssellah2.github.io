@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<script>
+  // Extract language code from URL (e.g., /ar/ → 'ar')
+  const lang = window.location.pathname.match(/\/([a-z]{2})\//)?.[1];
+  
+  // Supported languages
+  const supportedLangs = ['ar', 'fr', 'es', 'en'];
+  
+  if (supportedLangs.includes(lang)) {
+    // Save language and redirect
+    localStorage.setItem('preferredLanguage', lang);
+    window.location.href = window.location.origin + '/?lang=' + lang;
+  } else {
+    // Show actual 404 page
+    document.body.innerHTML = `
+      <h1>Page Not Found</h1>
+      <p><a href="/">Go to homepage</a></p>
+    `;
+  }
+</script>
