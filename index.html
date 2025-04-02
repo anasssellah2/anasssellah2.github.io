@@ -605,7 +605,9 @@
     <i class="fas fa-check-circle"></i> Message sent! I'll contact you shortly.
 </div>
     <h3>Contact Me</h3>
-    <form action="https://formsubmit.co/anass.sellah@gmail.com" method="POST" onsubmit="showSuccess()">
+    <form action="https://formsubmit.co/anass.sellah@gmail.com" 
+      method="POST" 
+      onsubmit="event.preventDefault(); showSuccess(); setTimeout(() => this.submit(), 3000);">
         <!-- FormSubmit Configuration -->
         <input type="hidden" name="_captcha" value="false">
         <input type="hidden" name="_subject" value="New Delivery Request - SwiftRider">
@@ -771,8 +773,12 @@
 function showSuccess() {
     const successDiv = document.getElementById('form-success');
     successDiv.style.display = 'block';
-    setTimeout(() => successDiv.style.display = 'none', 5000);
     successDiv.scrollIntoView({ behavior: 'smooth' });
+    
+    // Optional: Hide after 5 seconds
+    setTimeout(() => {
+        successDiv.style.display = 'none';
+    }, 5000);
 }
 </script>
     
