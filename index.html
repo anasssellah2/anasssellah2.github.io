@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -26,6 +26,10 @@
             line-height: 1.6;
             color: var(--text);
             background-color: #f9f9f9;
+        }
+        
+        body[dir="rtl"] {
+            text-align: right;
         }
         
         a {
@@ -111,6 +115,11 @@
         
         nav ul li {
             margin-left: 30px;
+        }
+        
+        body[dir="rtl"] nav ul li {
+            margin-left: 0;
+            margin-right: 30px;
         }
         
         nav ul li a {
@@ -264,12 +273,21 @@
             align-items: center;
         }
         
+        body[dir="rtl"] .testimonial-card .author {
+            flex-direction: row-reverse;
+        }
+        
         .testimonial-card .author-img {
             width: 50px;
             height: 50px;
             border-radius: 50%;
             overflow: hidden;
             margin-right: 15px;
+        }
+        
+        body[dir="rtl"] .testimonial-card .author-img {
+            margin-right: 0;
+            margin-left: 15px;
         }
         
         .testimonial-card .author-img img {
@@ -319,6 +337,10 @@
             margin-bottom: 15px;
         }
         
+        body[dir="rtl"] .contact-item {
+            flex-direction: row-reverse;
+        }
+        
         .contact-item i {
             width: 40px;
             height: 40px;
@@ -329,6 +351,11 @@
             align-items: center;
             justify-content: center;
             margin-right: 15px;
+        }
+        
+        body[dir="rtl"] .contact-item i {
+            margin-right: 0;
+            margin-left: 15px;
         }
         
         .contact-form input,
@@ -389,6 +416,141 @@
             opacity: 0.8;
         }
         
+        /* Language Selector */
+        .language-selector {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .language-btn {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: white;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            overflow: hidden;
+        }
+        
+        .language-btn:hover {
+            transform: scale(1.1);
+        }
+        
+        .language-btn img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .language-dropdown {
+            position: absolute;
+            bottom: 65px;
+            left: 0;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            overflow: hidden;
+            display: none;
+        }
+        
+        .language-dropdown.show {
+            display: block;
+        }
+        
+        .language-option {
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .language-option:hover {
+            background: #f5f5f5;
+        }
+        
+        .language-option img {
+            width: 20px;
+            height: 15px;
+            object-fit: cover;
+        }
+        
+        /* Language Popup */
+        .language-popup {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.8);
+            z-index: 2000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .language-popup.show {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .popup-content {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            max-width: 500px;
+            width: 90%;
+            text-align: center;
+        }
+        
+        .popup-content h3 {
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+        
+        .language-options {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-top: 30px;
+        }
+        
+        .language-option-lg {
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .language-option-lg:hover {
+            background: #f5f5f5;
+            border-color: var(--secondary);
+        }
+        
+        .language-option-lg img {
+            width: 40px;
+            height: 30px;
+            object-fit: cover;
+            margin-bottom: 10px;
+        }
+        
         /* Responsive */
         @media (max-width: 768px) {
             .header-container {
@@ -415,262 +577,18 @@
             .about-img {
                 order: -1;
             }
+            
+            .language-selector {
+                left: 15px;
+                bottom: 15px;
+            }
+            
+            .language-btn {
+                width: 40px;
+                height: 40px;
+            }
         }
-    </style>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-</head>
-<body>
-    <!-- Header -->
-    <header>
-        <div class="container header-container">
-            <a href="#" class="logo">Swift<span>Rider</span></a>
-            <nav>
-                <ul>
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#testimonials">Testimonials</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
-
-    <!-- Hero Section -->
-    <section class="hero" id="home">
-        <div class="container hero-content">
-            <h1>Fast & Reliable Motorcycle Delivery Services</h1>
-            <p>Delivering food, products, medicine, and transporting people with speed and care throughout the city.</p>
-            <a href="#contact" class="btn">Get in Touch</a>
-        </div>
-    </section>
-
-    <!-- Services Section -->
-    <section class="services" id="services">
-        <div class="container">
-            <h2 class="section-title">Our Services</h2>
-            <div class="services-grid">
-                <!-- Service 1 -->
-                <div class="service-card">
-                    <div class="service-img">
-                        <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Food Delivery">
-                    </div>
-                    <div class="service-content">
-                        <h3>Food Delivery</h3>
-                        <p>Get your favorite meals delivered hot and fresh from restaurants to your doorstep in record time.</p>
-                    </div>
-                </div>
-                
-                <!-- Service 2 -->
-                <div class="service-card">
-                    <div class="service-img">
-                        <img src="https://images.unsplash.com/photo-1580913428735-bd3c269d6a82?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Product Delivery">
-                    </div>
-                    <div class="service-content">
-                        <h3>Product Delivery</h3>
-                        <p>Fast and secure delivery of packages, documents, and other items across the city.</p>
-                    </div>
-                </div>
-                
-                <!-- Service 3 -->
-                <div class="service-card">
-                    <div class="service-img">
-                        <img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Medicine Delivery">
-                    </div>
-                    <div class="service-content">
-                        <h3>Medicine Delivery</h3>
-                        <p>Urgent pharmacy deliveries when you need them most, with careful handling guaranteed.</p>
-                    </div>
-                </div>
-                
-                <!-- Service 4 -->
-                <div class="service-card">
-                    <div class="service-img">
-                        <img src="https://images.unsplash.com/photo-1532635241-17e820acc59f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="People Transport">
-                    </div>
-                    <div class="service-content">
-                        <h3>People Transport</h3>
-                        <p>Safe and comfortable motorcycle transport service for quick city commutes.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section class="about" id="about">
-        <div class="container">
-            <h2 class="section-title">About Me</h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <h2>Your Trusted Rider in the City</h2>
-                    <p>With years of experience navigating the city streets, I provide fast, reliable, and affordable delivery and transport services to meet all your needs.</p>
-                    <p>I understand the importance of timely deliveries and safe transportation, which is why I prioritize efficiency and care in every service I provide.</p>
-                    <p>Whether it's your lunch, important documents, urgent medicine, or you need a quick ride across town, you can count on me to get you or your items where they need to be.</p>
-                    <a href="#contact" class="btn">Contact Me</a>
-                </div>
-                <div class="about-img">
-                    <img src="https://images.unsplash.com/photo-1558981806-ec527fa84c39?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Motorcycle Rider">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials Section -->
-    <section class="testimonials" id="testimonials">
-        <div class="container">
-            <h2 class="section-title">What Clients Say</h2>
-            <div class="testimonial-grid">
-                <!-- Testimonial 1 -->
-                <div class="testimonial-card">
-                    <p class="quote">"Amazing service! My food arrived hot and fresh in just 15 minutes. Highly recommend for quick deliveries!"</p>
-                    <div class="author">
-                        <div class="author-img">
-                            <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Sarah J.">
-                        </div>
-                        <div class="author-info">
-                            <h4>Sarah J.</h4>
-                            <p>Regular Customer</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Testimonial 2 -->
-                <div class="testimonial-card">
-                    <p class="quote">"Saved me in an emergency by delivering my medicine when I was sick. Professional and reliable service."</p>
-                    <div class="author">
-                        <div class="author-img">
-                            <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Michael T.">
-                        </div>
-                        <div class="author-info">
-                            <h4>Michael T.</h4>
-                            <p>Medicine Delivery</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Testimonial 3 -->
-                <div class="testimonial-card">
-                    <p class="quote">"The fastest way to get across town during rush hour. Always on time and a safe driver."</p>
-                    <div class="author">
-                        <div class="author-img">
-                            <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Lisa M.">
-                        </div>
-                        <div class="author-info">
-                            <h4>Lisa M.</h4>
-                            <p>Transport Client</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section class="contact" id="contact">
-        <div class="container">
-            <h2 class="section-title">Get in Touch</h2>
-            <div class="contact-container">
-                <div class="contact-info">
-                    <h3>Contact Information</h3>
-                    <p>Ready to book a delivery or transport? Contact me directly for fast service.</p>
-                    
-                    <div class="contact-details">
-                        <div class="contact-item">
-                            <i class="fas fa-phone"></i>
-                            <span>+212 694 135 281</span>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fas fa-envelope"></i>
-                            <span>anass.sellah@gmail.com</span>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <span>Agadir, Morocco</span>
-                        </div>
-                    </div>
-                    
-                    <div class="social-links">
-                        <a href="https://wa.me/+212694135281" target="_blank"><i class="fab fa-whatsapp"></i></a>
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                    </div>
-                </div>
-                
-                <div class="contact-form">
-                    <!-- Success Message -->
-                    <div id="form-success" style="display:none; background:#25D366; color:white; padding:15px; margin:20px 0; border-radius:5px; text-align:center;">
-                        <i class="fas fa-check-circle"></i> Message sent! I'll contact you shortly.
-                    </div>
-                    
-                    <form action="https://formsubmit.co/anass.sellah@gmail.com" method="POST" onsubmit="event.preventDefault(); showSuccess(); setTimeout(() => this.submit(), 1000);">
-                        <!-- FormSubmit Configuration -->
-                        <input type="hidden" name="_captcha" value="false">
-                        <input type="hidden" name="_subject" value="New Delivery Request - SwiftRider">
-                        <input type="hidden" name="_template" value="basic">
-                        <input type="hidden" name="_next" value="#contact">
-                        <input type="hidden" name="_autoresponse" value="Thank you for your message! I'll contact you soon - Anass">
-                        
-                        <!-- Contact Fields -->
-                        <input type="text" name="name" placeholder="Your Full Name" required>
-                        <input type="email" name="email" placeholder="Your Email (optional)">
-                        <input type="tel" name="phone" placeholder="Your Phone Number (required)" required>
-                        <textarea name="message" placeholder="Your delivery details (address, items, time needed)" required></textarea>
-                        
-                        <!-- Submit Button -->
-                        <button type="submit" class="btn">
-                            <i class="fas fa-paper-plane"></i> Send Request
-                        </button>
-                        
-                        <!-- WhatsApp Alternative -->
-                        <div style="text-align:center; margin-top:20px; padding-top:15px; border-top:1px solid #eee;">
-                            <p>For urgent requests:</p>
-                            <a href="https://wa.me/212694135281" style="background:#25D366; color:white; padding:10px 20px; border-radius:5px; display:inline-block; margin-top:10px;">
-                                <i class="fab fa-whatsapp"></i> Chat on WhatsApp
-                            </a>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <a href="#" class="logo">Swift<span>Rider</span></a>
-                <p>Fast, Reliable, Professional Motorcycle Services</p>
-            </div>
-            <div class="copyright">
-                <p>&copy; 2023 SwiftRider. All Rights Reserved.</p>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Floating WhatsApp & Call Buttons -->
-    <div class="floating-buttons">
-        <a href="https://wa.me/+212694135281" class="float-btn whatsapp-btn" target="_blank">
-            <i class="fab fa-whatsapp"></i>
-        </a>
-        <a href="tel:+212694135281" class="float-btn call-btn">
-            <i class="fas fa-phone"></i>
-        </a>
-    </div>
-
-    <!-- Sticky Mobile Contact Bar -->
-    <div class="contact-bar">
-        <a href="tel:+212694135281" class="contact-bar-btn call">
-            <i class="fas fa-phone"></i>
-            <span>Call Now</span>
-        </a>
-        <a href="https://wa.me/+212694135281" class="contact-bar-btn whatsapp" target="_blank">
-            <i class="fab fa-whatsapp"></i>
-            <span>WhatsApp</span>
-        </a>
-    </div>
-
-    <style>
+        
         /* Floating Buttons (Desktop) */
         .floating-buttons {
             position: fixed;
@@ -765,8 +683,679 @@
             }
         }
     </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- Language Popup (First Visit) -->
+    <div class="language-popup" id="languagePopup">
+        <div class="popup-content">
+            <h3 id="popupTitle">Choose Your Language / اختر لغتك / Choisissez votre langue / Elige tu idioma</h3>
+            <p id="popupText">Welcome to SwiftRider! Please select your preferred language.</p>
+            <div class="language-options">
+                <div class="language-option-lg" onclick="setLanguage('en')">
+                    <img src="https://flagcdn.com/w20/gb.png" alt="English">
+                    <span>English</span>
+                </div>
+                <div class="language-option-lg" onclick="setLanguage('fr')">
+                    <img src="https://flagcdn.com/w20/fr.png" alt="French">
+                    <span>Français</span>
+                </div>
+                <div class="language-option-lg" onclick="setLanguage('ar')">
+                    <img src="https://flagcdn.com/w20/ma.png" alt="Arabic">
+                    <span>العربية</span>
+                </div>
+                <div class="language-option-lg" onclick="setLanguage('es')">
+                    <img src="https://flagcdn.com/w20/es.png" alt="Spanish">
+                    <span>Español</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="#" class="logo">Swift<span>Rider</span></a>
+            <nav>
+                <ul>
+                    <li><a href="#home" data-translate="nav.home">Home</a></li>
+                    <li><a href="#services" data-translate="nav.services">Services</a></li>
+                    <li><a href="#about" data-translate="nav.about">About</a></li>
+                    <li><a href="#testimonials" data-translate="nav.testimonials">Testimonials</a></li>
+                    <li><a href="#contact" data-translate="nav.contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container hero-content">
+            <h1 data-translate="hero.title">Fast & Reliable Motorcycle Delivery Services</h1>
+            <p data-translate="hero.subtitle">Delivering food, products, medicine, and transporting people with speed and care throughout the city.</p>
+            <a href="#contact" class="btn" data-translate="hero.button">Get in Touch</a>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <h2 class="section-title" data-translate="services.title">Our Services</h2>
+            <div class="services-grid">
+                <!-- Service 1 -->
+                <div class="service-card">
+                    <div class="service-img">
+                        <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Food Delivery">
+                    </div>
+                    <div class="service-content">
+                        <h3 data-translate="services.food.title">Food Delivery</h3>
+                        <p data-translate="services.food.desc">Get your favorite meals delivered hot and fresh from restaurants to your doorstep in record time.</p>
+                    </div>
+                </div>
+                
+                <!-- Service 2 -->
+                <div class="service-card">
+                    <div class="service-img">
+                        <img src="https://images.unsplash.com/photo-1580913428735-bd3c269d6a82?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Product Delivery">
+                    </div>
+                    <div class="service-content">
+                        <h3 data-translate="services.product.title">Product Delivery</h3>
+                        <p data-translate="services.product.desc">Fast and secure delivery of packages, documents, and other items across the city.</p>
+                    </div>
+                </div>
+                
+                <!-- Service 3 -->
+                <div class="service-card">
+                    <div class="service-img">
+                        <img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Medicine Delivery">
+                    </div>
+                    <div class="service-content">
+                        <h3 data-translate="services.medicine.title">Medicine Delivery</h3>
+                        <p data-translate="services.medicine.desc">Urgent pharmacy deliveries when you need them most, with careful handling guaranteed.</p>
+                    </div>
+                </div>
+                
+                <!-- Service 4 -->
+                <div class="service-card">
+                    <div class="service-img">
+                        <img src="https://images.unsplash.com/photo-1532635241-17e820acc59f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="People Transport">
+                    </div>
+                    <div class="service-content">
+                        <h3 data-translate="services.transport.title">People Transport</h3>
+                        <p data-translate="services.transport.desc">Safe and comfortable motorcycle transport service for quick city commutes.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <h2 class="section-title" data-translate="about.title">About Me</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <h2 data-translate="about.subtitle">Your Trusted Rider in the City</h2>
+                    <p data-translate="about.text1">With years of experience navigating the city streets, I provide fast, reliable, and affordable delivery and transport services to meet all your needs.</p>
+                    <p data-translate="about.text2">I understand the importance of timely deliveries and safe transportation, which is why I prioritize efficiency and care in every service I provide.</p>
+                    <p data-translate="about.text3">Whether it's your lunch, important documents, urgent medicine, or you need a quick ride across town, you can count on me to get you or your items where they need to be.</p>
+                    <a href="#contact" class="btn" data-translate="about.button">Contact Me</a>
+                </div>
+                <div class="about-img">
+                    <img src="https://images.unsplash.com/photo-1558981806-ec527fa84c39?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Motorcycle Rider">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <h2 class="section-title" data-translate="testimonials.title">What Clients Say</h2>
+            <div class="testimonial-grid">
+                <!-- Testimonial 1 -->
+                <div class="testimonial-card">
+                    <p class="quote" data-translate="testimonials.1.quote">"Amazing service! My food arrived hot and fresh in just 15 minutes. Highly recommend for quick deliveries!"</p>
+                    <div class="author">
+                        <div class="author-img">
+                            <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Sarah J.">
+                        </div>
+                        <div class="author-info">
+                            <h4>Sarah J.</h4>
+                            <p data-translate="testimonials.1.role">Regular Customer</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="testimonial-card">
+                    <p class="quote" data-translate="testimonials.2.quote">"Saved me in an emergency by delivering my medicine when I was sick. Professional and reliable service."</p>
+                    <div class="author">
+                        <div class="author-img">
+                            <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Michael T.">
+                        </div>
+                        <div class="author-info">
+                            <h4>Michael T.</h4>
+                            <p data-translate="testimonials.2.role">Medicine Delivery</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="testimonial-card">
+                    <p class="quote" data-translate="testimonials.3.quote">"The fastest way to get across town during rush hour. Always on time and a safe driver."</p>
+                    <div class="author">
+                        <div class="author-img">
+                            <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Lisa M.">
+                        </div>
+                        <div class="author-info">
+                            <h4>Lisa M.</h4>
+                            <p data-translate="testimonials.3.role">Transport Client</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2 class="section-title" data-translate="contact.title">Get in Touch</h2>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3 data-translate="contact.info.title">Contact Information</h3>
+                    <p data-translate="contact.info.text">Ready to book a delivery or transport? Contact me directly for fast service.</p>
+                    
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <span>+212 694 135 281</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>anass.sellah@gmail.com</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span data-translate="contact.info.location">Agadir, Morocco</span>
+                        </div>
+                    </div>
+                    
+                    <div class="social-links">
+                        <a href="https://wa.me/+212694135281" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <!-- Success Message -->
+                    <div id="form-success" style="display:none; background:#25D366; color:white; padding:15px; margin:20px 0; border-radius:5px; text-align:center;">
+                        <i class="fas fa-check-circle"></i> <span data-translate="form.success">Message sent! I'll contact you shortly.</span>
+                    </div>
+                    
+                    <form action="https://formsubmit.co/anass.sellah@gmail.com" method="POST" onsubmit="event.preventDefault(); showSuccess(); setTimeout(() => this.submit(), 1000);">
+                        <!-- FormSubmit Configuration -->
+                        <input type="hidden" name="_captcha" value="false">
+                        <input type="hidden" name="_subject" value="New Delivery Request - SwiftRider">
+                        <input type="hidden" name="_template" value="basic">
+                        <input type="hidden" name="_next" value="#contact">
+                        <input type="hidden" name="_autoresponse" value="Thank you for your message! I'll contact you soon - Anass">
+                        
+                        <!-- Contact Fields -->
+                        <input type="text" name="name" placeholder="Your Full Name" data-translate="form.name" required>
+                        <input type="email" name="email" placeholder="Your Email (optional)" data-translate="form.email">
+                        <input type="tel" name="phone" placeholder="Your Phone Number (required)" data-translate="form.phone" required>
+                        <textarea name="message" placeholder="Your delivery details (address, items, time needed)" data-translate="form.message" required></textarea>
+                        
+                        <!-- Submit Button -->
+                        <button type="submit" class="btn">
+                            <i class="fas fa-paper-plane"></i> <span data-translate="form.button">Send Request</span>
+                        </button>
+                        
+                        <!-- WhatsApp Alternative -->
+                        <div style="text-align:center; margin-top:20px; padding-top:15px; border-top:1px solid #eee;">
+                            <p data-translate="form.whatsapp.text">For urgent requests:</p>
+                            <a href="https://wa.me/212694135281" style="background:#25D366; color:white; padding:10px 20px; border-radius:5px; display:inline-block; margin-top:10px;">
+                                <i class="fab fa-whatsapp"></i> <span data-translate="form.whatsapp.button">Chat on WhatsApp</span>
+                            </a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <a href="#" class="logo">Swift<span>Rider</span></a>
+                <p data-translate="footer.tagline">Fast, Reliable, Professional Motorcycle Services</p>
+            </div>
+            <div class="copyright">
+                <p>&copy; <span id="currentYear"></span> SwiftRider. <span data-translate="footer.rights">All Rights Reserved.</span></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp & Call Buttons -->
+    <div class="floating-buttons">
+        <a href="https://wa.me/+212694135281" class="float-btn whatsapp-btn" target="_blank">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+        <a href="tel:+212694135281" class="float-btn call-btn">
+            <i class="fas fa-phone"></i>
+        </a>
+    </div>
+
+    <!-- Language Selector -->
+    <div class="language-selector">
+        <div class="language-dropdown" id="languageDropdown">
+            <div class="language-option" onclick="setLanguage('en')">
+                <img src="https://flagcdn.com/w20/gb.png" alt="English">
+                <span>English</span>
+            </div>
+            <div class="language-option" onclick="setLanguage('fr')">
+                <img src="https://flagcdn.com/w20/fr.png" alt="French">
+                <span>Français</span>
+            </div>
+            <div class="language-option" onclick="setLanguage('ar')">
+                <img src="https://flagcdn.com/w20/ma.png" alt="Arabic">
+                <span>العربية</span>
+            </div>
+            <div class="language-option" onclick="setLanguage('es')">
+                <img src="https://flagcdn.com/w20/es.png" alt="Spanish">
+                <span>Español</span>
+            </div>
+        </div>
+        <div class="language-btn" onclick="toggleLanguageDropdown()">
+            <img src="https://flagcdn.com/w40/gb.png" alt="Current Language" id="currentLanguageFlag">
+        </div>
+    </div>
+
+    <!-- Sticky Mobile Contact Bar -->
+    <div class="contact-bar">
+        <a href="tel:+212694135281" class="contact-bar-btn call">
+            <i class="fas fa-phone"></i>
+            <span data-translate="mobile.call">Call Now</span>
+        </a>
+        <a href="https://wa.me/+212694135281" class="contact-bar-btn whatsapp" target="_blank">
+            <i class="fab fa-whatsapp"></i>
+            <span>WhatsApp</span>
+        </a>
+    </div>
 
     <script>
+        // Translations object
+        const translations = {
+            en: {
+                // Navigation
+                "nav.home": "Home",
+                "nav.services": "Services",
+                "nav.about": "About",
+                "nav.testimonials": "Testimonials",
+                "nav.contact": "Contact",
+                
+                // Hero
+                "hero.title": "Fast & Reliable Motorcycle Delivery Services",
+                "hero.subtitle": "Delivering food, products, medicine, and transporting people with speed and care throughout the city.",
+                "hero.button": "Get in Touch",
+                
+                // Services
+                "services.title": "Our Services",
+                "services.food.title": "Food Delivery",
+                "services.food.desc": "Get your favorite meals delivered hot and fresh from restaurants to your doorstep in record time.",
+                "services.product.title": "Product Delivery",
+                "services.product.desc": "Fast and secure delivery of packages, documents, and other items across the city.",
+                "services.medicine.title": "Medicine Delivery",
+                "services.medicine.desc": "Urgent pharmacy deliveries when you need them most, with careful handling guaranteed.",
+                "services.transport.title": "People Transport",
+                "services.transport.desc": "Safe and comfortable motorcycle transport service for quick city commutes.",
+                
+                // About
+                "about.title": "About Me",
+                "about.subtitle": "Your Trusted Rider in the City",
+                "about.text1": "With years of experience navigating the city streets, I provide fast, reliable, and affordable delivery and transport services to meet all your needs.",
+                "about.text2": "I understand the importance of timely deliveries and safe transportation, which is why I prioritize efficiency and care in every service I provide.",
+                "about.text3": "Whether it's your lunch, important documents, urgent medicine, or you need a quick ride across town, you can count on me to get you or your items where they need to be.",
+                "about.button": "Contact Me",
+                
+                // Testimonials
+                "testimonials.title": "What Clients Say",
+                "testimonials.1.quote": "\"Amazing service! My food arrived hot and fresh in just 15 minutes. Highly recommend for quick deliveries!\"",
+                "testimonials.1.role": "Regular Customer",
+                "testimonials.2.quote": "\"Saved me in an emergency by delivering my medicine when I was sick. Professional and reliable service.\"",
+                "testimonials.2.role": "Medicine Delivery",
+                "testimonials.3.quote": "\"The fastest way to get across town during rush hour. Always on time and a safe driver.\"",
+                "testimonials.3.role": "Transport Client",
+                
+                // Contact
+                "contact.title": "Get in Touch",
+                "contact.info.title": "Contact Information",
+                "contact.info.text": "Ready to book a delivery or transport? Contact me directly for fast service.",
+                "contact.info.location": "Agadir, Morocco",
+                
+                // Form
+                "form.name": "Your Full Name",
+                "form.email": "Your Email (optional)",
+                "form.phone": "Your Phone Number (required)",
+                "form.message": "Your delivery details (address, items, time needed)",
+                "form.button": "Send Request",
+                "form.success": "Message sent! I'll contact you shortly.",
+                "form.whatsapp.text": "For urgent requests:",
+                "form.whatsapp.button": "Chat on WhatsApp",
+                
+                // Footer
+                "footer.tagline": "Fast, Reliable, Professional Motorcycle Services",
+                "footer.rights": "All Rights Reserved.",
+                
+                // Mobile
+                "mobile.call": "Call Now",
+                
+                // Popup
+                "popup.title": "Choose Your Language",
+                "popup.text": "Welcome to SwiftRider! Please select your preferred language."
+            },
+            fr: {
+                // Navigation
+                "nav.home": "Accueil",
+                "nav.services": "Services",
+                "nav.about": "À propos",
+                "nav.testimonials": "Témoignages",
+                "nav.contact": "Contact",
+                
+                // Hero
+                "hero.title": "Services de Livraison Rapide et Fiable par Moto",
+                "hero.subtitle": "Livraison de nourriture, produits, médicaments et transport de personnes avec rapidité et soin dans toute la ville.",
+                "hero.button": "Contactez-moi",
+                
+                // Services
+                "services.title": "Nos Services",
+                "services.food.title": "Livraison de Nourriture",
+                "services.food.desc": "Recevez vos plats préférés livrés chauds et frais des restaurants à votre porte en un temps record.",
+                "services.product.title": "Livraison de Produits",
+                "services.product.desc": "Livraison rapide et sécurisée de colis, documents et autres articles à travers la ville.",
+                "services.medicine.title": "Livraison de Médicaments",
+                "services.medicine.desc": "Livraison urgente de pharmacie quand vous en avez le plus besoin, avec une manipulation soigneuse garantie.",
+                "services.transport.title": "Transport de Personnes",
+                "services.transport.desc": "Service de transport par moto sûr et confortable pour les trajets rapides en ville.",
+                
+                // About
+                "about.title": "À propos",
+                "about.subtitle": "Votre Livreur de Confiance en Ville",
+                "about.text1": "Avec des années d'expérience dans les rues de la ville, je propose des services de livraison et de transport rapides, fiables et abordables pour répondre à tous vos besoins.",
+                "about.text2": "Je comprends l'importance des livraisons ponctuelles et des transports sûrs, c'est pourquoi je privilégie l'efficacité et le soin dans chaque service que je propose.",
+                "about.text3": "Que ce soit votre déjeuner, des documents importants, des médicaments urgents ou que vous ayez besoin d'un trajet rapide en ville, vous pouvez compter sur moi pour vous ou vos articles là où ils doivent être.",
+                "about.button": "Contactez-moi",
+                
+                // Testimonials
+                "testimonials.title": "Témoignages Clients",
+                "testimonials.1.quote": "\"Service incroyable ! Ma nourriture est arrivée chaude et fraîche en seulement 15 minutes. Je recommande vivement pour les livraisons rapides !\"",
+                "testimonials.1.role": "Client Régulier",
+                "testimonials.2.quote": "\"M'a sauvé dans une situation d'urgence en livrant mes médicaments quand j'étais malade. Service professionnel et fiable.\"",
+                "testimonials.2.role": "Livraison Médicaments",
+                "testimonials.3.quote": "\"Le moyen le plus rapide de traverser la ville aux heures de pointe. Toujours à l'heure et conducteur prudent.\"",
+                "testimonials.3.role": "Client Transport",
+                
+                // Contact
+                "contact.title": "Contactez-nous",
+                "contact.info.title": "Informations de Contact",
+                "contact.info.text": "Prêt à réserver une livraison ou un transport ? Contactez-moi directement pour un service rapide.",
+                "contact.info.location": "Agadir, Maroc",
+                
+                // Form
+                "form.name": "Votre Nom Complet",
+                "form.email": "Votre Email (optionnel)",
+                "form.phone": "Votre Numéro de Téléphone (requis)",
+                "form.message": "Détails de votre livraison (adresse, articles, heure souhaitée)",
+                "form.button": "Envoyer la Demande",
+                "form.success": "Message envoyé ! Je vous contacterai bientôt.",
+                "form.whatsapp.text": "Pour les demandes urgentes :",
+                "form.whatsapp.button": "Discuter sur WhatsApp",
+                
+                // Footer
+                "footer.tagline": "Services de Moto Rapides, Fiables et Professionnels",
+                "footer.rights": "Tous droits réservés.",
+                
+                // Mobile
+                "mobile.call": "Appeler Maintenant",
+                
+                // Popup
+                "popup.title": "Choisissez Votre Langue",
+                "popup.text": "Bienvenue chez SwiftRider ! Veuillez sélectionner votre langue préférée."
+            },
+            ar: {
+                // Navigation
+                "nav.home": "الصفحة الرئيسية",
+                "nav.services": "الخدمات",
+                "nav.about": "من نحن",
+                "nav.testimonials": "شهادات العملاء",
+                "nav.contact": "اتصل بنا",
+                
+                // Hero
+                "hero.title": "خدمات توصيل سريعة وموثوقة بالدراجة النارية",
+                "hero.subtitle": "توصيل الطعام، المنتجات، الأدوية، ونقل الأشخاص بسرعة وعناية في جميع أنحاء المدينة.",
+                "hero.button": "تواصل معنا",
+                
+                // Services
+                "services.title": "خدماتنا",
+                "services.food.title": "توصيل الطعام",
+                "services.food.desc": "احصل على وجباتك المفضلة ساخنة وطازجة من المطاعم إلى عتبة دارك في وقت قياسي.",
+                "services.product.title": "توصيل المنتجات",
+                "services.product.desc": "توصيل سريع وآمن للطرود، المستندات، وغيرها من العناصر عبر المدينة.",
+                "services.medicine.title": "توصيل الأدوية",
+                "services.medicine.desc": "توصيل صيدليات عاجل عندما تكون في أمس الحاجة إليه، مع ضمان التعامل بعناية.",
+                "services.transport.title": "نقل الأشخاص",
+                "services.transport.desc": "خدمة نقل بالدراجة النارية آمنة ومريحة للتنقلات السريعة في المدينة.",
+                
+                // About
+                "about.title": "من نحن",
+                "about.subtitle": "سائقك الموثوق في المدينة",
+                "about.text1": "مع سنوات من الخبرة في التنقل في شوارع المدينة، أقدم خدمات توصيل ونقل سريعة وموثوقة وبأسعار معقولة لتلبية جميع احتياجاتك.",
+                "about.text2": "أفهم أهمية التوصيل في الوقت المحدد والنقل الآمن، ولهذا السبب أعطي الأولوية للكفاءة والرعاية في كل خدمة أقدمها.",
+                "about.text3": "سواء كان غدائك، مستندات مهمة، أدوية عاجلة أو كنت بحاجة إلى رحلة سريعة عبر المدينة، يمكنك الاعتماد عليّ لإيصالك أو إيصال أغراضك إلى حيث تحتاج إلى أن تكون.",
+                "about.button": "اتصل بي",
+                
+                // Testimonials
+                "testimonials.title": "ما يقوله العملاء",
+                "testimonials.1.quote": "\"خدمة رائعة! وصل طعامي ساخنًا وطازجًا في 15 دقيقة فقط. أوصي بشدة للتوصيلات السريعة!\"",
+                "testimonials.1.role": "عميل دائم",
+                "testimonials.2.quote": "\"أنقذني في حالة طوارئ بتوصيل دوائي عندما كنت مريضًا. خدمة احترافية وموثوقة.\"",
+                "testimonials.2.role": "توصيل أدوية",
+                "testimonials.3.quote": "\"أسرع طريقة للتنقل عبر المدينة في ساعة الذروة. دائمًا في الوقت المحدد وسائق آمن.\"",
+                "testimonials.3.role": "عميل نقل",
+                
+                // Contact
+                "contact.title": "اتصل بنا",
+                "contact.info.title": "معلومات الاتصال",
+                "contact.info.text": "مستعد لحجز توصيل أو نقل؟ اتصل بي مباشرة لخدمة سريعة.",
+                "contact.info.location": "أكادير، المغرب",
+                
+                // Form
+                "form.name": "اسمك الكامل",
+                "form.email": "بريدك الإلكتروني (اختياري)",
+                "form.phone": "رقم هاتفك (مطلوب)",
+                "form.message": "تفاصيل التوصيل (العنوان، العناصر، الوقت المطلوب)",
+                "form.button": "إرسال الطلب",
+                "form.success": "تم إرسال الرسالة! سأتصل بك قريبًا.",
+                "form.whatsapp.text": "للطلبات العاجلة:",
+                "form.whatsapp.button": "محادثة عبر واتساب",
+                
+                // Footer
+                "footer.tagline": "خدمات دراجة نارية سريعة وموثوقة واحترافية",
+                "footer.rights": "جميع الحقوق محفوظة.",
+                
+                // Mobile
+                "mobile.call": "اتصل الآن",
+                
+                // Popup
+                "popup.title": "اختر لغتك",
+                "popup.text": "مرحبًا بكم في سويفت رايدر! يرجى اختيار لغتك المفضلة."
+            },
+            es: {
+                // Navigation
+                "nav.home": "Inicio",
+                "nav.services": "Servicios",
+                "nav.about": "Sobre mí",
+                "nav.testimonials": "Testimonios",
+                "nav.contact": "Contacto",
+                
+                // Hero
+                "hero.title": "Servicios Rápidos y Confiables de Entrega en Motocicleta",
+                "hero.subtitle": "Entregando comida, productos, medicinas y transportando personas con rapidez y cuidado por toda la ciudad.",
+                "hero.button": "Contáctame",
+                
+                // Services
+                "services.title": "Nuestros Servicios",
+                "services.food.title": "Entrega de Comida",
+                "services.food.desc": "Recibe tus comidas favoritas entregadas calientes y frescas desde los restaurantes a tu puerta en tiempo récord.",
+                "services.product.title": "Entrega de Productos",
+                "services.product.desc": "Entrega rápida y segura de paquetes, documentos y otros artículos por toda la ciudad.",
+                "services.medicine.title": "Entrega de Medicinas",
+                "services.medicine.desc": "Entregas urgentes de farmacia cuando más las necesitas, con manejo cuidadoso garantizado.",
+                "services.transport.title": "Transporte de Personas",
+                "services.transport.desc": "Servicio de transporte en motocicleta seguro y cómodo para desplazamientos rápidos por la ciudad.",
+                
+                // About
+                "about.title": "Sobre Mí",
+                "about.subtitle": "Tu Conductor de Confianza en la Ciudad",
+                "about.text1": "Con años de experiencia navegando por las calles de la ciudad, ofrezco servicios de entrega y transporte rápidos, confiables y asequibles para satisfacer todas tus necesidades.",
+                "about.text2": "Entiendo la importancia de las entregas puntuales y el transporte seguro, por eso priorizo la eficiencia y el cuidado en cada servicio que ofrezco.",
+                "about.text3": "Ya sea tu almuerzo, documentos importantes, medicinas urgentes o necesitas un viaje rápido por la ciudad, puedes contar conmigo para llevarte a ti o tus artículos donde necesiten estar.",
+                "about.button": "Contáctame",
+                
+                // Testimonials
+                "testimonials.title": "Lo que Dicen los Clientes",
+                "testimonials.1.quote": "\"¡Servicio increíble! Mi comida llegó caliente y fresca en solo 15 minutos. ¡Altamente recomendado para entregas rápidas!\"",
+                "testimonials.1.role": "Cliente Regular",
+                "testimonials.2.quote": "\"Me salvó en una emergencia entregando mi medicina cuando estaba enfermo. Servicio profesional y confiable.\"",
+                "testimonials.2.role": "Entrega de Medicina",
+                "testimonials.3.quote": "\"La forma más rápida de cruzar la ciudad en hora pico. Siempre puntual y un conductor seguro.\"",
+                "testimonials.3.role": "Cliente de Transporte",
+                
+                // Contact
+                "contact.title": "Contáctame",
+                "contact.info.title": "Información de Contacto",
+                "contact.info.text": "¿Listo para reservar una entrega o transporte? Contáctame directamente para un servicio rápido.",
+                "contact.info.location": "Agadir, Marruecos",
+                
+                // Form
+                "form.name": "Tu Nombre Completo",
+                "form.email": "Tu Email (opcional)",
+                "form.phone": "Tu Número de Teléfono (requerido)",
+                "form.message": "Detalles de tu entrega (dirección, artículos, hora necesaria)",
+                "form.button": "Enviar Solicitud",
+                "form.success": "¡Mensaje enviado! Te contactaré pronto.",
+                "form.whatsapp.text": "Para solicitudes urgentes:",
+                "form.whatsapp.button": "Chatear por WhatsApp",
+                
+                // Footer
+                "footer.tagline": "Servicios de Motocicleta Rápidos, Confiables y Profesionales",
+                "footer.rights": "Todos los derechos reservados.",
+                
+                // Mobile
+                "mobile.call": "Llamar Ahora",
+                
+                // Popup
+                "popup.title": "Elige tu Idioma",
+                "popup.text": "Bienvenido a SwiftRider. Por favor selecciona tu idioma preferido."
+            }
+        };
+
+        // Language detection and setting
+        document.addEventListener('DOMContentLoaded', function() {
+            // Set current year in footer
+            document.getElementById('currentYear').textContent = new Date().getFullYear();
+            
+            // Check for stored language preference
+            const storedLang = localStorage.getItem('preferredLanguage');
+            const browserLang = navigator.language.substring(0, 2);
+            const supportedLangs = ['en', 'fr', 'ar', 'es'];
+            
+            // Determine initial language
+            let initialLang = 'en'; // default
+            
+            if (storedLang && supportedLangs.includes(storedLang)) {
+                initialLang = storedLang;
+            } else if (supportedLangs.includes(browserLang)) {
+                initialLang = browserLang;
+            }
+            
+            // Check if this is first visit (no stored language)
+            if (!storedLang) {
+                setTimeout(() => {
+                    document.getElementById('languagePopup').classList.add('show');
+                }, 1000);
+            }
+            
+            // Set initial language
+            setLanguage(initialLang);
+            
+            // Initialize language selector flag
+            updateLanguageFlag(initialLang);
+        });
+        
+        function setLanguage(lang) {
+            // Set HTML lang attribute and direction for Arabic
+            document.documentElement.lang = lang;
+            if (lang === 'ar') {
+                document.documentElement.dir = 'rtl';
+            } else {
+                document.documentElement.dir = 'ltr';
+            }
+            
+            // Store preference
+            localStorage.setItem('preferredLanguage', lang);
+            
+            // Update all translatable elements
+            const translatableElements = document.querySelectorAll('[data-translate]');
+            translatableElements.forEach(el => {
+                const key = el.getAttribute('data-translate');
+                if (translations[lang] && translations[lang][key]) {
+                    if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+                        el.placeholder = translations[lang][key];
+                    } else {
+                        el.textContent = translations[lang][key];
+                    }
+                }
+            });
+            
+            // Update popup content if shown
+            if (translations[lang] && translations[lang]['popup.title']) {
+                document.getElementById('popupTitle').textContent = translations[lang]['popup.title'];
+                document.getElementById('popupText').textContent = translations[lang]['popup.text'];
+            }
+            
+            // Update URL without reloading
+            const newUrl = window.location.pathname.replace(/^\/(en|fr|ar|es)\//, '/') + lang + '/';
+            if (!window.location.pathname.includes('/' + lang + '/')) {
+                window.history.pushState({}, '', newUrl);
+            }
+            
+            // Update language flag
+            updateLanguageFlag(lang);
+            
+            // Hide popup if visible
+            document.getElementById('languagePopup').classList.remove('show');
+            document.getElementById('languageDropdown').classList.remove('show');
+        }
+        
+        function toggleLanguageDropdown() {
+            document.getElementById('languageDropdown').classList.toggle('show');
+        }
+        
+        function updateLanguageFlag(lang) {
+            const flagMap = {
+                'en': 'gb',
+                'fr': 'fr',
+                'ar': 'ma',
+                'es': 'es'
+            };
+            document.getElementById('currentLanguageFlag').src = `https://flagcdn.com/w40/${flagMap[lang]}.png`;
+        }
+        
         function showSuccess() {
             const successDiv = document.getElementById('form-success');
             successDiv.style.display = 'block';
