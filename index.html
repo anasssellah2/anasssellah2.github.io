@@ -1,77 +1,136 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="zxx" dir="ltr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AgadirRush - Motorcycle Delivery & Transport Services</title>
+    <title>AgadirRush | توصيل سريع وتمريض منزلي في أكادير</title>
+    <meta name="description" content="أسرع خدمة توصيل بالدراجة النارية وتمريض منزلي في أكادير. Delivery rapide et infirmière à domicile à Agadir.">
+    <meta name="keywords" content="توصيل أكادير, Agadir delivery, ممرض منزلي, infirmière Agadir, livraison moto">
+    <meta name="geo.region" content="MA-AGD">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* Global Styles */
         :root {
             --primary: #2c3e50;
             --secondary: #e74c3c;
             --accent: #f39c12;
-            --light: #ecf0f1;
-            --dark: #2c3e50;
+            --light: #f5f5f5;
+            --dark: #222;
             --text: #333;
         }
-        
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-        
         body {
+            font-family: 'Roboto', 'Tajawal', sans-serif;
             line-height: 1.6;
             color: var(--text);
-            background-color: #f9f9f9;
+            background: var(--light);
+            overflow-x: hidden;
         }
-        
-        body[dir="rtl"] {
+        body.rtl {
+            font-family: 'Tajawal', 'Roboto', sans-serif;
             text-align: right;
         }
-        
-        a {
-            text-decoration: none;
-            color: var(--secondary);
-        }
-        
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
         }
-        
         .btn {
             display: inline-block;
             background: var(--secondary);
             color: white;
-            padding: 10px 25px;
+            padding: 12px 25px;
+            border-radius: 50px;
+            font-weight: 700;
+            transition: all 0.3s;
             border: none;
-            border-radius: 5px;
             cursor: pointer;
-            transition: all 0.3s ease;
-            font-weight: 600;
-            text-transform: uppercase;
-            font-size: 14px;
-            letter-spacing: 1px;
+            text-align: center;
         }
-        
         .btn:hover {
-            background: #c0392b;
-            transform: translateY(-2px);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(231, 76, 60, 0.3);
         }
-        
+        .btn-accent {
+            background: var(--accent);
+        }
+        header {
+            background: var(--primary);
+            color: white;
+            padding: 15px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            color: white;
+        }
+        .logo span {
+            color: var(--secondary);
+        }
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+        nav ul li a {
+            color: white;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+        nav ul li a:hover {
+            color: var(--secondary);
+        }
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
+                        url('https://images.unsplash.com/photo-1558981806-ec527fa84c39?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center/cover;
+            color: white;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            padding-top: 80px;
+        }
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .hero h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            margin-bottom: 20px;
+        }
+        .hero-btns {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+        .services {
+            padding: 100px 0;
+        }
         .section-title {
             text-align: center;
             margin-bottom: 50px;
+            font-size: 2.5rem;
             color: var(--primary);
             position: relative;
-            font-size: 2.2rem;
         }
-        
-        .section-title:after {
+        .section-title::after {
             content: '';
             display: block;
             width: 80px;
@@ -79,204 +138,102 @@
             background: var(--secondary);
             margin: 15px auto;
         }
-        
-        /* Header */
-        header {
-            background-color: var(--primary);
-            color: white;
-            padding: 20px 0;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        }
-        
-        .header-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .logo {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: white;
-        }
-        
-        .logo span {
-            color: var(--secondary);
-        }
-        
-        nav ul {
-            display: flex;
-            list-style: none;
-        }
-        
-        nav ul li {
-            margin-left: 30px;
-        }
-        
-        body[dir="rtl"] nav ul li {
-            margin-left: 0;
-            margin-right: 30px;
-        }
-        
-        nav ul li a {
-            color: white;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-        
-        nav ul li a:hover {
-            color: var(--secondary);
-        }
-        
-        /* Hero Section */
-        .hero {
-            height: 100vh;
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1558981806-ec527fa84c39?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
-            color: white;
-            display: flex;
-            align-items: center;
-            text-align: center;
-            padding-top: 80px;
-        }
-        
-        .hero-content {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 20px;
-            line-height: 1.2;
-        }
-        
-        .hero p {
-            font-size: 1.2rem;
-            margin-bottom: 30px;
-            opacity: 0.9;
-        }
-        
-        /* Services Section */
-        .services {
-            padding: 100px 0;
-            background-color: white;
-        }
-        
         .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
             margin-top: 50px;
         }
-        
         .service-card {
-            background: var(--light);
+            background: white;
             border-radius: 10px;
             overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+            position: relative;
         }
-        
         .service-card:hover {
             transform: translateY(-10px);
         }
-        
+        .service-card.nurse {
+            border: 3px solid var(--accent);
+        }
+        .service-card.nurse::after {
+            content: "HOT";
+            position: absolute;
+            top: 15px;
+            right: -30px;
+            background: var(--accent);
+            color: white;
+            width: 100px;
+            text-align: center;
+            transform: rotate(45deg);
+            font-weight: bold;
+            font-size: 14px;
+        }
         .service-img {
             height: 200px;
             overflow: hidden;
         }
-        
         .service-img img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.5s ease;
+            transition: transform 0.5s;
         }
-        
         .service-card:hover .service-img img {
             transform: scale(1.1);
         }
-        
         .service-content {
             padding: 25px;
         }
-        
         .service-content h3 {
             margin-bottom: 15px;
             color: var(--primary);
         }
-        
-        /* About Section */
         .about {
             padding: 100px 0;
-            background-color: var(--light);
+            background: white;
         }
-        
         .about-content {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 50px;
             align-items: center;
         }
-        
         .about-img {
             border-radius: 10px;
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
         }
-        
         .about-img img {
             width: 100%;
             height: auto;
             display: block;
         }
-        
-        .about-text h2 {
-            margin-bottom: 20px;
-            color: var(--primary);
-        }
-        
-        .about-text p {
-            margin-bottom: 15px;
-        }
-        
-        /* Testimonials */
         .testimonials {
             padding: 100px 0;
-            background-color: white;
+            background: var(--light);
         }
-        
         .testimonial-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
         }
-        
         .testimonial-card {
-            background: var(--light);
+            background: white;
             padding: 30px;
             border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
         }
-        
         .testimonial-card .quote {
             font-style: italic;
             margin-bottom: 20px;
         }
-        
         .testimonial-card .author {
             display: flex;
             align-items: center;
         }
-        
-        body[dir="rtl"] .testimonial-card .author {
-            flex-direction: row-reverse;
-        }
-        
         .testimonial-card .author-img {
             width: 50px;
             height: 50px;
@@ -284,63 +241,29 @@
             overflow: hidden;
             margin-right: 15px;
         }
-        
-        body[dir="rtl"] .testimonial-card .author-img {
-            margin-right: 0;
-            margin-left: 15px;
-        }
-        
         .testimonial-card .author-img img {
             width: 100%;
             height: 100%;
             object-fit: cover;
         }
-        
-        .author-info h4 {
-            margin-bottom: 5px;
-            color: var(--primary);
-        }
-        
-        .author-info p {
-            color: #777;
-            font-size: 14px;
-        }
-        
-        /* Contact Section */
         .contact {
             padding: 100px 0;
-            background-color: var(--light);
+            background: white;
         }
-        
         .contact-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 50px;
         }
-        
         .contact-info h3 {
             margin-bottom: 20px;
             color: var(--primary);
         }
-        
-        .contact-info p {
-            margin-bottom: 30px;
-        }
-        
-        .contact-details {
-            margin-bottom: 30px;
-        }
-        
         .contact-item {
             display: flex;
             align-items: center;
             margin-bottom: 15px;
         }
-        
-        body[dir="rtl"] .contact-item {
-            flex-direction: row-reverse;
-        }
-        
         .contact-item i {
             width: 40px;
             height: 40px;
@@ -352,14 +275,30 @@
             justify-content: center;
             margin-right: 15px;
         }
-        
-        body[dir="rtl"] .contact-item i {
-            margin-right: 0;
-            margin-left: 15px;
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
         }
-        
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background: rgba(0,0,0,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            transition: all 0.3s;
+        }
+        .social-links a:hover {
+            background: var(--secondary);
+            color: white;
+            transform: translateY(-3px);
+        }
         .contact-form input,
-        .contact-form textarea {
+        .contact-form textarea,
+        .contact-form select {
             width: 100%;
             padding: 15px;
             margin-bottom: 20px;
@@ -367,230 +306,46 @@
             border-radius: 5px;
             font-size: 16px;
         }
-        
         .contact-form textarea {
             height: 150px;
             resize: vertical;
         }
-        
-        /* Footer */
         footer {
-            background-color: var(--dark);
+            background: var(--primary);
             color: white;
             padding: 50px 0 20px;
             text-align: center;
         }
-        
-        .footer-content {
-            margin-bottom: 30px;
-        }
-        
-        .social-links {
-            display: flex;
-            justify-content: center;
-            margin: 20px 0;
-        }
-        
-        .social-links a {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            margin: 0 10px;
-            color: white;
-            transition: all 0.3s ease;
-        }
-        
-        .social-links a:hover {
-            background: var(--secondary);
-            transform: translateY(-3px);
-        }
-        
         .copyright {
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            border-top: 1px solid rgba(255,255,255,0.1);
             padding-top: 20px;
+            margin-top: 30px;
             font-size: 14px;
-            opacity: 0.8;
         }
-        
-        /* Language Selector */
-        .language-selector {
+        .language-switcher {
             position: fixed;
             bottom: 30px;
             left: 30px;
-            z-index: 1000;
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
+            z-index: 100;
         }
-        
-        .language-btn {
+        .lang-btn {
             width: 50px;
             height: 50px;
             border-radius: 50%;
             background: white;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
             display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
-            transition: all 0.3s ease;
             overflow: hidden;
         }
-        
-        .language-btn:hover {
-            transform: scale(1.1);
-        }
-        
-        .language-btn img {
+        .lang-btn img {
             width: 100%;
             height: 100%;
             object-fit: cover;
         }
-        
-        .language-dropdown {
-            position: absolute;
-            bottom: 65px;
-            left: 0;
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-            overflow: hidden;
-            display: none;
-        }
-        
-        .language-dropdown.show {
-            display: block;
-        }
-        
-        .language-option {
-            padding: 10px 20px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        
-        .language-option:hover {
-            background: #f5f5f5;
-        }
-        
-        .language-option img {
-            width: 20px;
-            height: 15px;
-            object-fit: cover;
-        }
-        
-        /* Language Popup */
-        .language-popup {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0,0,0,0.8);
-            z-index: 2000;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease;
-        }
-        
-        .language-popup.show {
-            opacity: 1;
-            visibility: visible;
-        }
-        
-        .popup-content {
-            background: white;
-            border-radius: 10px;
-            padding: 30px;
-            max-width: 500px;
-            width: 90%;
-            text-align: center;
-        }
-        
-        .popup-content h3 {
-            margin-bottom: 20px;
-            color: var(--primary);
-        }
-        
-        .language-options {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 15px;
-            margin-top: 30px;
-        }
-        
-        .language-option-lg {
-            padding: 15px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        
-        .language-option-lg:hover {
-            background: #f5f5f5;
-            border-color: var(--secondary);
-        }
-        
-        .language-option-lg img {
-            width: 40px;
-            height: 30px;
-            object-fit: cover;
-            margin-bottom: 10px;
-        }
-        
-        /* Responsive */
-        @media (max-width: 768px) {
-            .header-container {
-                flex-direction: column;
-                text-align: center;
-            }
-            
-            nav ul {
-                margin-top: 20px;
-            }
-            
-            nav ul li {
-                margin: 0 10px;
-            }
-            
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-            
-            .about-content {
-                grid-template-columns: 1fr;
-            }
-            
-            .about-img {
-                order: -1;
-            }
-            
-            .language-selector {
-                left: 15px;
-                bottom: 15px;
-            }
-            
-            .language-btn {
-                width: 40px;
-                height: 40px;
-            }
-        }
-        
-        /* Floating Buttons (Desktop) */
-        .floating-buttons {
+        .call-buttons {
             position: fixed;
             bottom: 30px;
             right: 30px;
@@ -599,123 +354,76 @@
             flex-direction: column;
             gap: 15px;
         }
-        
-        .float-btn {
+        .call-btn {
             width: 60px;
             height: 60px;
             border-radius: 50%;
+            background: #25D366;
+            color: white;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 24px;
-            color: white;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            animation: pulse 1.5s infinite;
             text-decoration: none;
         }
-        
-        .float-btn:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        .phone-btn {
+            background: var(--secondary);
+            animation: pulse 1.5s infinite, shake 0.5s infinite alternate;
         }
-        
-        .whatsapp-btn {
-            background: #25D366;
-        }
-        
-        .call-btn {
-            background: #075E54;
-            animation: pulse 2s infinite;
-        }
-        
         @keyframes pulse {
             0% { transform: scale(1); }
             50% { transform: scale(1.1); }
             100% { transform: scale(1); }
         }
-        
-        /* Sticky Contact Bar (Mobile) */
-        .contact-bar {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: white;
-            display: none;
-            justify-content: space-around;
-            padding: 10px 0;
-            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
-            z-index: 1000;
+        @keyframes shake {
+            0% { transform: rotate(-5deg); }
+            100% { transform: rotate(5deg); }
         }
-        
-        .contact-bar-btn {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-decoration: none;
-            color: #555;
-            font-size: 12px;
-            padding: 5px 10px;
-            border-radius: 5px;
-            transition: all 0.3s ease;
+        body.rtl .header-container {
+            flex-direction: row-reverse;
         }
-        
-        .contact-bar-btn i {
-            font-size: 24px;
-            margin-bottom: 5px;
+        body.rtl nav ul {
+            padding-right: 0;
         }
-        
-        .contact-bar-btn.call {
-            color: #075E54;
+        body.rtl .contact-item {
+            flex-direction: row-reverse;
         }
-        
-        .contact-bar-btn.whatsapp {
-            color: #25D366;
+        body.rtl .contact-item i {
+            margin-right: 0;
+            margin-left: 15px;
         }
-        
-        /* Show mobile bar only on mobile */
-        @media (max-width: 767px) {
-            .floating-buttons {
-                display: none;
+        body.rtl .testimonial-card .author {
+            flex-direction: row-reverse;
+        }
+        body.rtl .testimonial-card .author-img {
+            margin-right: 0;
+            margin-left: 15px;
+        }
+        @media (max-width: 768px) {
+            nav ul {
+                gap: 15px;
             }
-            .contact-bar {
-                display: flex;
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+            .call-buttons {
+                bottom: 20px;
+                right: 20px;
+            }
+            .language-switcher {
+                bottom: 20px;
+                left: 20px;
             }
         }
     </style>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-    <!-- Language Popup (First Visit) -->
-    <div class="language-popup" id="languagePopup">
-        <div class="popup-content">
-            <h3 id="popupTitle">Choose Your Language / اختر لغتك / Choisissez votre langue / Elige tu idioma</h3>
-            <p id="popupText">Welcome to AgadirRush! Please select your preferred language.</p>
-            <div class="language-options">
-                <div class="language-option-lg" onclick="setLanguage('en')">
-                    <img src="https://flagcdn.com/w20/gb.png" alt="English">
-                    <span>English</span>
-                </div>
-                <div class="language-option-lg" onclick="setLanguage('fr')">
-                    <img src="https://flagcdn.com/w20/fr.png" alt="French">
-                    <span>Français</span>
-                </div>
-                <div class="language-option-lg" onclick="setLanguage('ar')">
-                    <img src="https://flagcdn.com/w20/ma.png" alt="Arabic">
-                    <span>العربية</span>
-                </div>
-                <div class="language-option-lg" onclick="setLanguage('es')">
-                    <img src="https://flagcdn.com/w20/es.png" alt="Spanish">
-                    <span>Español</span>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <!-- Header -->
     <header>
         <div class="container header-container">
-            <a href="#" class="logo">Agadir<span>Rush</span></a>
+            <a href="#" class="logo">أكادير<span> رش</span></a>
             <nav>
                 <ul>
                     <li><a href="#home" data-translate="nav.home">Home</a></li>
@@ -731,9 +439,12 @@
     <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="container hero-content">
-            <h1 data-translate="hero.title">Fast & Reliable Motorcycle Delivery Services</h1>
-            <p data-translate="hero.subtitle">Delivering food, products, medicine, and transporting people with speed and care throughout the city.</p>
-            <a href="#contact" class="btn" data-translate="hero.button">Get in Touch</a>
+            <h1 data-translate="hero.title">Fast Delivery & Nursing Services in Agadir</h1>
+            <p data-translate="hero.subtitle">Motorcycle delivery and professional home nursing care in Agadir</p>
+            <div class="hero-btns">
+                <a href="#services" class="btn" data-translate="hero.btn_delivery">Order Delivery</a>
+                <a href="#nurse" class="btn btn-accent" data-translate="hero.btn_nurse">Request Nurse</a>
+            </div>
         </div>
     </section>
 
@@ -742,47 +453,51 @@
         <div class="container">
             <h2 class="section-title" data-translate="services.title">Our Services</h2>
             <div class="services-grid">
-                <!-- Service 1 -->
+                <!-- Food Delivery -->
                 <div class="service-card">
                     <div class="service-img">
                         <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Food Delivery">
                     </div>
                     <div class="service-content">
                         <h3 data-translate="services.food.title">Food Delivery</h3>
-                        <p data-translate="services.food.desc">Get your favorite meals delivered hot and fresh from restaurants to your doorstep in record time.</p>
+                        <p data-translate="services.food.desc">Fast delivery from restaurants to your home or office</p>
+                        <a href="tel:+212694135281" class="btn" style="margin-top:15px" data-translate="services.order">Order Now</a>
                     </div>
                 </div>
                 
-                <!-- Service 2 -->
+                <!-- Product Delivery -->
                 <div class="service-card">
                     <div class="service-img">
                         <img src="https://images.unsplash.com/photo-1580913428735-bd3c269d6a82?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Product Delivery">
                     </div>
                     <div class="service-content">
                         <h3 data-translate="services.product.title">Product Delivery</h3>
-                        <p data-translate="services.product.desc">Fast and secure delivery of packages, documents, and other items across the city.</p>
+                        <p data-translate="services.product.desc">Secure delivery of packages across Agadir</p>
+                        <a href="tel:+212694135281" class="btn" style="margin-top:15px" data-translate="services.order">Order Now</a>
                     </div>
                 </div>
                 
-                <!-- Service 3 -->
+                <!-- Nurse Service -->
+                <div class="service-card nurse" id="nurse">
+                    <div class="service-img">
+                        <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Nurse Service">
+                    </div>
+                    <div class="service-content">
+                        <h3 data-translate="services.nurse.title">Home Nurse Service</h3>
+                        <p data-translate="services.nurse.desc">Professional medical care at your home in Agadir</p>
+                        <a href="tel:+212694135281" class="btn btn-accent" style="margin-top:15px" data-translate="services.nurse.call">Call Nurse</a>
+                    </div>
+                </div>
+                
+                <!-- Medicine Delivery -->
                 <div class="service-card">
                     <div class="service-img">
                         <img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Medicine Delivery">
                     </div>
                     <div class="service-content">
                         <h3 data-translate="services.medicine.title">Medicine Delivery</h3>
-                        <p data-translate="services.medicine.desc">Urgent pharmacy deliveries when you need them most, with careful handling guaranteed.</p>
-                    </div>
-                </div>
-                
-                <!-- Service 4 -->
-                <div class="service-card">
-                    <div class="service-img">
-                        <img src="https://images.unsplash.com/photo-1532635241-17e820acc59f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="People Transport">
-                    </div>
-                    <div class="service-content">
-                        <h3 data-translate="services.transport.title">People Transport</h3>
-                        <p data-translate="services.transport.desc">Safe and comfortable motorcycle transport service for quick city commutes.</p>
+                        <p data-translate="services.medicine.desc">Urgent pharmacy deliveries in Agadir</p>
+                        <a href="tel:+212694135281" class="btn" style="margin-top:15px" data-translate="services.order">Order Now</a>
                     </div>
                 </div>
             </div>
@@ -792,65 +507,48 @@
     <!-- About Section -->
     <section class="about" id="about">
         <div class="container">
-            <h2 class="section-title" data-translate="about.title">About Me</h2>
+            <h2 class="section-title" data-translate="about.title">About Us</h2>
             <div class="about-content">
                 <div class="about-text">
-                    <h2 data-translate="about.subtitle">Your Trusted Rider in the City</h2>
-                    <p data-translate="about.text1">With years of experience navigating the city streets, I provide fast, reliable, and affordable delivery and transport services to meet all your needs.</p>
-                    <p data-translate="about.text2">I understand the importance of timely deliveries and safe transportation, which is why I prioritize efficiency and care in every service I provide.</p>
-                    <p data-translate="about.text3">Whether it's your lunch, important documents, urgent medicine, or you need a quick ride across town, you can count on me to get you or your items where they need to be.</p>
-                    <a href="#contact" class="btn" data-translate="about.button">Contact Me</a>
+                    <h2 data-translate="about.subtitle">Your Trusted Service in Agadir</h2>
+                    <p data-translate="about.text1">With years of experience in Agadir, we provide fast, reliable delivery and nursing services.</p>
+                    <p data-translate="about.text2">We understand the importance of timely services and professional care.</p>
+                    <p data-translate="about.text3">Whether it's food delivery, medical supplies, or nursing care, count on us.</p>
+                    <a href="#contact" class="btn" data-translate="about.button">Contact Us</a>
                 </div>
                 <div class="about-img">
-                    <img src="https://images.unsplash.com/photo-1558981806-ec527fa84c39?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Motorcycle Rider">
+                    <img src="https://images.unsplash.com/photo-1558981806-ec527fa84c39?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Our Team">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Testimonials Section -->
+    <!-- Testimonials -->
     <section class="testimonials" id="testimonials">
         <div class="container">
-            <h2 class="section-title" data-translate="testimonials.title">What Clients Say</h2>
+            <h2 class="section-title" data-translate="testimonials.title">Client Reviews</h2>
             <div class="testimonial-grid">
-                <!-- Testimonial 1 -->
                 <div class="testimonial-card">
-                    <p class="quote" data-translate="testimonials.1.quote">"Amazing service! My food arrived hot and fresh in just 15 minutes. Highly recommend for quick deliveries!"</p>
+                    <p class="quote" data-translate="testimonials.1.quote">"Amazing delivery service! My food arrived in just 20 minutes."</p>
                     <div class="author">
                         <div class="author-img">
-                            <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Sarah J.">
+                            <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Sarah">
                         </div>
                         <div class="author-info">
-                            <h4>Sarah J.</h4>
-                            <p data-translate="testimonials.1.role">Regular Customer</p>
+                            <h4>Sarah K.</h4>
+                            <p data-translate="testimonials.1.role">Food Delivery</p>
                         </div>
                     </div>
                 </div>
-                
-                <!-- Testimonial 2 -->
                 <div class="testimonial-card">
-                    <p class="quote" data-translate="testimonials.2.quote">"Saved me in an emergency by delivering my medicine when I was sick. Professional and reliable service."</p>
+                    <p class="quote" data-translate="testimonials.2.quote">"The nurse was professional and helped my mother recover quickly."</p>
                     <div class="author">
                         <div class="author-img">
-                            <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Michael T.">
+                            <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Mohamed">
                         </div>
                         <div class="author-info">
-                            <h4>Michael T.</h4>
-                            <p data-translate="testimonials.2.role">Medicine Delivery</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Testimonial 3 -->
-                <div class="testimonial-card">
-                    <p class="quote" data-translate="testimonials.3.quote">"The fastest way to get across town during rush hour. Always on time and a safe driver."</p>
-                    <div class="author">
-                        <div class="author-img">
-                            <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Lisa M.">
-                        </div>
-                        <div class="author-info">
-                            <h4>Lisa M.</h4>
-                            <p data-translate="testimonials.3.role">Transport Client</p>
+                            <h4>Mohamed A.</h4>
+                            <p data-translate="testimonials.2.role">Nursing Service</p>
                         </div>
                     </div>
                 </div>
@@ -861,75 +559,37 @@
     <!-- Contact Section -->
     <section class="contact" id="contact">
         <div class="container">
-            <h2 class="section-title" data-translate="contact.title">Get in Touch</h2>
+            <h2 class="section-title" data-translate="contact.title">Contact Us</h2>
             <div class="contact-container">
                 <div class="contact-info">
-                    <h3 data-translate="contact.info.title">Contact Information</h3>
-                    <p data-translate="contact.info.text">Ready to book a delivery or transport? Contact me directly for fast service.</p>
-                    
+                    <h3 data-translate="contact.info.title">Get In Touch</h3>
+                    <p data-translate="contact.info.text">Available 24/7 in Agadir</p>
                     <div class="contact-item">
-    <i class="fas fa-phone"></i>
-    <span dir="ltr">+212 694 135 281</span>
-</div>
-                        <div class="contact-item">
-                            <i class="fas fa-envelope"></i>
-                            <span>anass.sellah@gmail.com</span>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <span data-translate="contact.info.location">Agadir, Morocco</span>
-                        </div>
+                        <i class="fas fa-phone"></i>
+                        <span dir="ltr">+212 694 135 281</span>
                     </div>
-                    
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span data-translate="contact.location">Agadir, Morocco</span>
+                    </div>
                     <div class="social-links">
-                        <a href="https://wa.me/+212694135281" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://wa.me/212694135281" target="_blank"><i class="fab fa-whatsapp"></i></a>
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
                         <a href="#"><i class="fab fa-instagram"></i></a>
                     </div>
                 </div>
-                
                 <div class="contact-form">
-                    <!-- Success Message -->
-                    <div id="form-success" style="display:none; background:#25D366; color:white; padding:15px; margin:20px 0; border-radius:5px; text-align:center;">
-                        <i class="fas fa-check-circle"></i> <span data-translate="form.success">Message sent! I'll contact you shortly.</span>
-                    </div>
-                    
-                    <form action="https://formsubmit.co/anass.sellah@gmail.com" method="POST" onsubmit="event.preventDefault(); showSuccess(); setTimeout(() => this.submit(), 1000);">
-                        <!-- FormSubmit Configuration -->
-                        <input type="hidden" name="_captcha" value="false">
-                        <input type="hidden" name="_subject" value="New Delivery Request - AgadirRush">
-                        <input type="hidden" name="_template" value="basic">
-                        <input type="hidden" name="_next" value="#contact">
-                        <input type="hidden" name="_autoresponse" value="Thank you for your message! I'll contact you soon - Anass">
-                        
-                        <!-- Contact Fields -->
-                        <input type="text" name="name" placeholder="Your Full Name" data-translate="form.name" required>
-                        <input type="email" name="email" placeholder="Your Email (optional)" data-translate="form.email">
-                        <input type="tel" name="phone" placeholder="Your Phone Number (required)" data-translate="form.phone" required>
-                        <textarea name="message" placeholder="Your delivery details (address, items, time needed)" data-translate="form.message" required></textarea>
-                        
-                        <!-- Submit Button -->
-                        <button type="submit" class="btn">
-                            <i class="fas fa-paper-plane"></i> <span data-translate="form.button">Send Request</span>
-                        </button>
-                        
-                        <!-- WhatsApp Alternative -->
-                        <div style="text-align:center; margin-top:20px; padding-top:15px; border-top:1px solid #eee;">
-    <p data-translate="form.urgent.text">For urgent requests:</p>
-    <div style="display: flex; gap: 15px; justify-content: center; margin-top: 10px;">
-        <!-- WhatsApp Button -->
-        <a href="https://wa.me/212694135281" style="background:#25D366; color:white; padding:10px 20px; border-radius:5px; display:inline-flex; align-items:center; gap:8px; text-decoration:none;">
-            <i class="fab fa-whatsapp"></i>
-            <span data-translate="form.whatsapp.button">Chat on WhatsApp</span>
-        </a>
-        
-        <!-- Call Button -->
-        <a href="tel:+212694135281" style="background:#075E54; color:white; padding:10px 20px; border-radius:5px; display:inline-flex; align-items:center; gap:8px; text-decoration:none;">
-            <i class="fas fa-phone"></i>
-            <span data-translate="form.call.button">Call Now</span>
-        </a>
-    </div>
-</div>
+                    <form action="https://formsubmit.co/your-email@example.com" method="POST">
+                        <input type="hidden" name="_subject" value="New AgadirRush Request">
+                        <select name="service" required>
+                            <option value="" disabled selected data-translate="form.service">Select Service</option>
+                            <option value="Food Delivery" data-translate="form.food">Food Delivery</option>
+                            <option value="Nurse Service" data-translate="form.nurse">Nurse Service</option>
+                        </select>
+                        <input type="text" name="name" placeholder="Your Name" data-translate="form.name" required>
+                        <input type="tel" name="phone" placeholder="Phone Number" data-translate="form.phone" required>
+                        <textarea name="message" placeholder="Your Message" data-translate="form.message" required></textarea>
+                        <button type="submit" class="btn" data-translate="form.submit">Send Request</button>
                     </form>
                 </div>
             </div>
@@ -940,8 +600,8 @@
     <footer>
         <div class="container">
             <div class="footer-content">
-                <a href="#" class="logo">Agadir<span>Rush</span></a>
-                <p data-translate="footer.tagline">Fast, Reliable, Professional Motorcycle Services</p>
+                <a href="#" class="logo">أكادير<span> رش</span></a>
+                <p data-translate="footer.tagline">Fast Delivery & Nursing in Agadir</p>
             </div>
             <div class="copyright">
                 <p>&copy; <span id="currentYear"></span> AgadirRush. <span data-translate="footer.rights">All Rights Reserved.</span></p>
@@ -949,494 +609,225 @@
         </div>
     </footer>
 
-    <!-- Floating WhatsApp & Call Buttons -->
-    <div class="floating-buttons">
-        <a href="https://wa.me/+212694135281" class="float-btn whatsapp-btn" target="_blank">
-            <i class="fab fa-whatsapp"></i>
-        </a>
-        <a href="tel:+212694135281" class="float-btn call-btn">
-            <i class="fas fa-phone"></i>
-        </a>
-    </div>
-
-    <!-- Language Selector -->
-    <div class="language-selector">
-        <div class="language-dropdown" id="languageDropdown">
-            <div class="language-option" onclick="setLanguage('en')">
-                <img src="https://flagcdn.com/w20/gb.png" alt="English">
-                <span>English</span>
-            </div>
-            <div class="language-option" onclick="setLanguage('fr')">
-                <img src="https://flagcdn.com/w20/fr.png" alt="French">
-                <span>Français</span>
-            </div>
-            <div class="language-option" onclick="setLanguage('ar')">
-                <img src="https://flagcdn.com/w20/ma.png" alt="Arabic">
-                <span>العربية</span>
-            </div>
-            <div class="language-option" onclick="setLanguage('es')">
-                <img src="https://flagcdn.com/w20/es.png" alt="Spanish">
-                <span>Español</span>
-            </div>
-        </div>
-        <div class="language-btn" onclick="toggleLanguageDropdown()">
-            <img src="https://flagcdn.com/w40/gb.png" alt="Current Language" id="currentLanguageFlag">
+    <!-- Language Switcher -->
+    <div class="language-switcher">
+        <div class="lang-btn" id="langBtn">
+            <img src="https://flagcdn.com/w40/ma.png" alt="Language" id="currentLangFlag">
         </div>
     </div>
 
-    <!-- Sticky Mobile Contact Bar -->
-    <div class="contact-bar">
-        <a href="tel:+212694135281" class="contact-bar-btn call">
-            <i class="fas fa-phone"></i>
-            <span data-translate="mobile.call">Call Now</span>
-        </a>
-        <a href="https://wa.me/+212694135281" class="contact-bar-btn whatsapp" target="_blank">
+    <!-- Call Buttons -->
+    <div class="call-buttons">
+        <a href="https://wa.me/212694135281" class="call-btn" target="_blank">
             <i class="fab fa-whatsapp"></i>
-            <span>WhatsApp</span>
+        </a>
+        <a href="tel:+212694135281" class="call-btn phone-btn">
+            <i class="fas fa-phone"></i>
         </a>
     </div>
 
     <script>
-        // Translations object
+        // Translations
         const translations = {
             en: {
-                
-                // Navigation
                 "nav.home": "Home",
                 "nav.services": "Services",
                 "nav.about": "About",
-                "nav.testimonials": "Testimonials",
+                "nav.testimonials": "Reviews",
                 "nav.contact": "Contact",
-                
-                // Hero
-                "hero.title": "Fast & Reliable Motorcycle Delivery Services",
-                "hero.subtitle": "Delivering food, products, medicine, and transporting people with speed and care throughout the city.",
-                "hero.button": "Get in Touch",
-                
-                // Services
+                "hero.title": "Fast Delivery & Nursing in Agadir",
+                "hero.subtitle": "Motorcycle delivery and professional home nursing services",
+                "hero.btn_delivery": "Order Delivery",
+                "hero.btn_nurse": "Request Nurse",
                 "services.title": "Our Services",
                 "services.food.title": "Food Delivery",
-                "services.food.desc": "Get your favorite meals delivered hot and fresh from restaurants to your doorstep in record time.",
+                "services.food.desc": "Fast delivery from restaurants",
                 "services.product.title": "Product Delivery",
-                "services.product.desc": "Fast and secure delivery of packages, documents, and other items across the city.",
+                "services.product.desc": "Secure delivery across Agadir",
                 "services.medicine.title": "Medicine Delivery",
-                "services.medicine.desc": "Urgent pharmacy deliveries when you need them most, with careful handling guaranteed.",
-                "services.transport.title": "People Transport",
-                "services.transport.desc": "Safe and comfortable motorcycle transport service for quick city commutes.",
-                
-                // About
-                "about.title": "About Me",
-                "about.subtitle": "Your Trusted Rider in the City",
-                "about.text1": "With years of experience navigating the city streets, I provide fast, reliable, and affordable delivery and transport services to meet all your needs.",
-                "about.text2": "I understand the importance of timely deliveries and safe transportation, which is why I prioritize efficiency and care in every service I provide.",
-                "about.text3": "Whether it's your lunch, important documents, urgent medicine, or you need a quick ride across town, you can count on me to get you or your items where they need to be.",
-                "about.button": "Contact Me",
-                
-                // Testimonials
-                "testimonials.title": "What Clients Say",
-                "testimonials.1.quote": "\"Amazing service! My food arrived hot and fresh in just 15 minutes. Highly recommend for quick deliveries!\"",
-                "testimonials.1.role": "Regular Customer",
-                "testimonials.2.quote": "\"Saved me in an emergency by delivering my medicine when I was sick. Professional and reliable service.\"",
-                "testimonials.2.role": "Medicine Delivery",
-                "testimonials.3.quote": "\"The fastest way to get across town during rush hour. Always on time and a safe driver.\"",
-                "testimonials.3.role": "Transport Client",
-                
-                // Contact
-                "contact.title": "Get in Touch",
-                "contact.info.title": "Contact Information",
-                "contact.info.text": "Ready to book a delivery or transport? Contact me directly for fast service.",
-                "contact.info.location": "Agadir, Morocco",
-                
-                // Form
-                "form.name": "Your Full Name",
-                "form.email": "Your Email (optional)",
-                "form.phone": "Your Phone Number (required)",
-                "form.message": "Your delivery details (address, items, time needed)",
-                "form.button": "Send Request",
-                "form.success": "Message sent! I'll contact you shortly.",
-                "form.whatsapp.text": "For urgent requests:",
-                "form.whatsapp.button": "Chat on WhatsApp",
-                
-                // Footer
-                "footer.tagline": "Fast, Reliable, Professional Motorcycle Services",
-                "footer.rights": "All Rights Reserved.",
-                
-                // Mobile
-                "mobile.call": "Call Now",
-                
-                // Popup
-                "popup.title": "Choose Your Language",
-                "popup.text": "Welcome to AgadirRush! Please select your preferred language."
-                en: {
-    // ... all existing English translations ...
-    "form.urgent.text": "For urgent requests:",
-    "form.call.button": "Call Now"
-
+                "services.medicine.desc": "Urgent pharmacy deliveries",
+                "services.nurse.title": "Home Nurse",
+                "services.nurse.desc": "Professional medical care at home",
+                "services.order": "Order Now",
+                "services.nurse.call": "Call Nurse",
+                "about.title": "About Us",
+                "about.subtitle": "Your Trusted Service in Agadir",
+                "about.text1": "With years of experience in Agadir...",
+                "about.text2": "We understand the importance...",
+                "about.text3": "Whether it's food delivery...",
+                "about.button": "Contact Us",
+                "testimonials.title": "Client Reviews",
+                "testimonials.1.quote": "\"Amazing delivery service! My food arrived in just 20 minutes.\"",
+                "testimonials.1.role": "Food Delivery",
+                "testimonials.2.quote": "\"The nurse was professional and helped my mother recover quickly.\"",
+                "testimonials.2.role": "Nursing Service",
+                "contact.title": "Contact Us",
+                "contact.info.title": "Get In Touch",
+                "contact.info.text": "Available 24/7 in Agadir",
+                "contact.location": "Agadir, Morocco",
+                "form.service": "Select Service",
+                "form.food": "Food Delivery",
+                "form.nurse": "Nurse Service",
+                "form.name": "Your Name",
+                "form.phone": "Phone Number",
+                "form.message": "Your Message",
+                "form.submit": "Send Request",
+                "footer.tagline": "Fast Delivery & Nursing in Agadir",
+                "footer.rights": "All Rights Reserved"
             },
             fr: {
-                
-                // Navigation
                 "nav.home": "Accueil",
                 "nav.services": "Services",
                 "nav.about": "À propos",
-                "nav.testimonials": "Témoignages",
+                "nav.testimonials": "Avis",
                 "nav.contact": "Contact",
-                
-                // Hero
-                "hero.title": "Services de Livraison Rapide et Fiable par Moto",
-                "hero.subtitle": "Livraison de nourriture, produits, médicaments et transport de personnes avec rapidité et soin dans toute la ville.",
-                "hero.button": "Contactez-moi",
-                
-                // Services
+                "hero.title": "Livraison Rapide & Infirmière à Agadir",
+                "hero.subtitle": "Livraison par moto et services infirmiers à domicile",
+                "hero.btn_delivery": "Commander",
+                "hero.btn_nurse": "Infirmière",
                 "services.title": "Nos Services",
-                "services.food.title": "Livraison de Nourriture",
-                "services.food.desc": "Recevez vos plats préférés livrés chauds et frais des restaurants à votre porte en un temps record.",
-                "services.product.title": "Livraison de Produits",
-                "services.product.desc": "Livraison rapide et sécurisée de colis, documents et autres articles à travers la ville.",
-                "services.medicine.title": "Livraison de Médicaments",
-                "services.medicine.desc": "Livraison urgente de pharmacie quand vous en avez le plus besoin, avec une manipulation soigneuse garantie.",
-                "services.transport.title": "Transport de Personnes",
-                "services.transport.desc": "Service de transport par moto sûr et confortable pour les trajets rapides en ville.",
-                
-                // About
+                "services.food.title": "Livraison Nourriture",
+                "services.food.desc": "Livraison rapide de restaurants",
+                "services.product.title": "Livraison Produits",
+                "services.product.desc": "Livraison sécurisée à Agadir",
+                "services.medicine.title": "Livraison Médicaments",
+                "services.medicine.desc": "Livraison urgente de pharmacie",
+                "services.nurse.title": "Infirmière à Domicile",
+                "services.nurse.desc": "Soins médicaux professionnels",
+                "services.order": "Commander",
+                "services.nurse.call": "Appeler Infirmière",
                 "about.title": "À propos",
-                "about.subtitle": "Votre Livreur de Confiance en Ville",
-                "about.text1": "Avec des années d'expérience dans les rues de la ville, je propose des services de livraison et de transport rapides, fiables et abordables pour répondre à tous vos besoins.",
-                "about.text2": "Je comprends l'importance des livraisons ponctuelles et des transports sûrs, c'est pourquoi je privilégie l'efficacité et le soin dans chaque service que je propose.",
-                "about.text3": "Que ce soit votre déjeuner, des documents importants, des médicaments urgents ou que vous ayez besoin d'un trajet rapide en ville, vous pouvez compter sur moi pour vous ou vos articles là où ils doivent être.",
-                "about.button": "Contactez-moi",
-                
-                // Testimonials
-                "testimonials.title": "Témoignages Clients",
-                "testimonials.1.quote": "\"Service incroyable ! Ma nourriture est arrivée chaude et fraîche en seulement 15 minutes. Je recommande vivement pour les livraisons rapides !\"",
-                "testimonials.1.role": "Client Régulier",
-                "testimonials.2.quote": "\"M'a sauvé dans une situation d'urgence en livrant mes médicaments quand j'étais malade. Service professionnel et fiable.\"",
-                "testimonials.2.role": "Livraison Médicaments",
-                "testimonials.3.quote": "\"Le moyen le plus rapide de traverser la ville aux heures de pointe. Toujours à l'heure et conducteur prudent.\"",
-                "testimonials.3.role": "Client Transport",
-                
-                // Contact
+                "about.subtitle": "Votre Service de Confiance à Agadir",
+                "about.text1": "Avec des années d'expérience à Agadir...",
+                "about.text2": "Nous comprenons l'importance...",
+                "about.text3": "Que ce soit la livraison...",
+                "about.button": "Contactez-nous",
+                "testimonials.title": "Avis Clients",
+                "testimonials.1.quote": "\"Service de livraison incroyable ! Ma nourriture est arrivée en 20 minutes.\"",
+                "testimonials.1.role": "Livraison Nourriture",
+                "testimonials.2.quote": "\"L'infirmière était professionnelle et a aidé ma mère à se rétablir rapidement.\"",
+                "testimonials.2.role": "Service Infirmier",
                 "contact.title": "Contactez-nous",
-                "contact.info.title": "Informations de Contact",
-                "contact.info.text": "Prêt à réserver une livraison ou un transport ? Contactez-moi directement pour un service rapide.",
-                "contact.info.location": "Agadir, Maroc",
-                
-                // Form
-                "form.name": "Votre Nom Complet",
-                "form.email": "Votre Email (optionnel)",
-                "form.phone": "Votre Numéro de Téléphone (requis)",
-                "form.message": "Détails de votre livraison (adresse, articles, heure souhaitée)",
-                "form.button": "Envoyer la Demande",
-                "form.success": "Message envoyé ! Je vous contacterai bientôt.",
-                "form.whatsapp.text": "Pour les demandes urgentes :",
-                "form.whatsapp.button": "Discuter sur WhatsApp",
-                
-                // Footer
-                "footer.tagline": "Services de Moto Rapides, Fiables et Professionnels",
-                "footer.rights": "Tous droits réservés.",
-                
-                // Mobile
-                "mobile.call": "Appeler Maintenant",
-                
-                // Popup
-                "popup.title": "Choisissez Votre Langue",
-                "popup.text": "Bienvenue chez AgadirRush ! Veuillez sélectionner votre langue préférée."
-                fr: {
-    // ... all existing French translations ...
-    "form.urgent.text": "Pour demandes urgentes :",
-    "form.call.button": "Appeler maintenant"
-
+                "contact.info.title": "Contact",
+                "contact.info.text": "Disponible 24/7 à Agadir",
+                "contact.location": "Agadir, Maroc",
+                "form.service": "Choisir Service",
+                "form.food": "Livraison Nourriture",
+                "form.nurse": "Service Infirmier",
+                "form.name": "Votre Nom",
+                "form.phone": "Téléphone",
+                "form.message": "Votre Message",
+                "form.submit": "Envoyer",
+                "footer.tagline": "Livraison Rapide & Infirmière à Agadir",
+                "footer.rights": "Tous droits réservés"
             },
             ar: {
-                
-                // Navigation
-                "nav.home": "الصفحة الرئيسية",
+                "nav.home": "الرئيسية",
                 "nav.services": "الخدمات",
                 "nav.about": "من نحن",
-                "nav.testimonials": "شهادات العملاء",
+                "nav.testimonials": "آراء العملاء",
                 "nav.contact": "اتصل بنا",
-                
-                // Hero
-                "hero.title": "خدمات توصيل سريعة وموثوقة بالدراجة النارية",
-                "hero.subtitle": "توصيل الطعام، المنتجات، الأدوية، ونقل الأشخاص بسرعة وعناية في جميع أنحاء المدينة.",
-                "hero.button": "تواصل معنا",
-                
-                // Services
+                "hero.title": "توصيل سريع وتمريض منزلي في أكادير",
+                "hero.subtitle": "خدمة توصيل بالدراجة النارية وتمريض منزلي محترف",
+                "hero.btn_delivery": "طلب توصيل",
+                "hero.btn_nurse": "طلب ممرض",
                 "services.title": "خدماتنا",
-                "services.food.title": "توصيل الطعام",
-                "services.food.desc": "احصل على وجباتك المفضلة ساخنة وطازجة من المطاعم إلى عتبة دارك في وقت قياسي.",
-                "services.product.title": "توصيل المنتجات",
-                "services.product.desc": "توصيل سريع وآمن للطرود، المستندات، وغيرها من العناصر عبر المدينة.",
-                "services.medicine.title": "توصيل الأدوية",
-                "services.medicine.desc": "توصيل صيدليات عاجل عندما تكون في أمس الحاجة إليه، مع ضمان التعامل بعناية.",
-                "services.transport.title": "نقل الأشخاص",
-                "services.transport.desc": "خدمة نقل بالدراجة النارية آمنة ومريحة للتنقلات السريعة في المدينة.",
-                
-                // About
+                "services.food.title": "توصيل طعام",
+                "services.food.desc": "توصيل سريع من المطاعم",
+                "services.product.title": "توصيل منتجات",
+                "services.product.desc": "توصيل آمن في أكادير",
+                "services.medicine.title": "توصيل أدوية",
+                "services.medicine.desc": "توصيل صيدليات عاجل",
+                "services.nurse.title": "تمريض منزلي",
+                "services.nurse.desc": "رعاية طبية منزلية محترفة",
+                "services.order": "اطلب الآن",
+                "services.nurse.call": "اتصل بالممرض",
                 "about.title": "من نحن",
-                "about.subtitle": "سائقك الموثوق في المدينة",
-                "about.text1": "مع سنوات من الخبرة في التنقل في شوارع المدينة، أقدم خدمات توصيل ونقل سريعة وموثوقة وبأسعار معقولة لتلبية جميع احتياجاتك.",
-                "about.text2": "أفهم أهمية التوصيل في الوقت المحدد والنقل الآمن، ولهذا السبب أعطي الأولوية للكفاءة والرعاية في كل خدمة أقدمها.",
-                "about.text3": "سواء كان غدائك، مستندات مهمة، أدوية عاجلة أو كنت بحاجة إلى رحلة سريعة عبر المدينة، يمكنك الاعتماد عليّ لإيصالك أو إيصال أغراضك إلى حيث تحتاج إلى أن تكون.",
-                "about.button": "اتصل بي",
-                
-                // Testimonials
-                "testimonials.title": "ما يقوله العملاء",
-                "testimonials.1.quote": "\"خدمة رائعة! وصل طعامي ساخنًا وطازجًا في 15 دقيقة فقط. أوصي بشدة للتوصيلات السريعة!\"",
-                "testimonials.1.role": "عميل دائم",
-                "testimonials.2.quote": "\"أنقذني في حالة طوارئ بتوصيل دوائي عندما كنت مريضًا. خدمة احترافية وموثوقة.\"",
-                "testimonials.2.role": "توصيل أدوية",
-                "testimonials.3.quote": "\"أسرع طريقة للتنقل عبر المدينة في ساعة الذروة. دائمًا في الوقت المحدد وسائق آمن.\"",
-                "testimonials.3.role": "عميل نقل",
-                
-                // Contact
+                "about.subtitle": "خدمتكم الموثوقة في أكادير",
+                "about.text1": "بخبرة سنوات في أكادير...",
+                "about.text2": "نحن ندرك أهمية...",
+                "about.text3": "سواء كان توصيل طعام...",
+                "about.button": "اتصل بنا",
+                "testimonials.title": "آراء العملاء",
+                "testimonials.1.quote": "\"خدمة توصيل رائعة! وصل طعامي خلال 20 دقيقة فقط.\"",
+                "testimonials.1.role": "توصيل طعام",
+                "testimonials.2.quote": "\"الممرضة كانت محترفة وساعدت أمي على التعافي بسرعة.\"",
+                "testimonials.2.role": "خدمة تمريض",
                 "contact.title": "اتصل بنا",
-                "contact.info.title": "معلومات الاتصال",
-                "contact.info.text": "مستعد لحجز توصيل أو نقل؟ اتصل بي مباشرة لخدمة سريعة.",
-                "contact.info.location": "أكادير، المغرب",
-                
-                // Form
-                "form.name": "اسمك الكامل",
-                "form.email": "بريدك الإلكتروني (اختياري)",
-                "form.phone": "رقم هاتفك (مطلوب)",
-                "form.message": "تفاصيل التوصيل (العنوان، العناصر، الوقت المطلوب)",
-                "form.button": "إرسال الطلب",
-                "form.success": "تم إرسال الرسالة! سأتصل بك قريبًا.",
-                "form.whatsapp.text": "للطلبات العاجلة:",
-                "form.whatsapp.button": "محادثة عبر واتساب",
-                
-                // Footer
-                "footer.tagline": "خدمات دراجة نارية سريعة وموثوقة واحترافية",
-                "footer.rights": "جميع الحقوق محفوظة.",
-                
-                // Mobile
-                "mobile.call": "اتصل الآن",
-                
-                // Popup
-                "popup.title": "اختر لغتك",
-                "popup.text": "مرحبًا بكم في أكادير رش! يرجى اختيار لغتك المفضلة."
-                ar: {
-    // ... all existing Arabic translations ...
-    "form.urgent.text": "للطلبات العاجلة:",
-    "form.call.button": "اتصل الآن"
-
-            },
-            es: {
-             
-                // Navigation
-                "nav.home": "Inicio",
-                "nav.services": "Servicios",
-                "nav.about": "Sobre mí",
-                "nav.testimonials": "Testimonios",
-                "nav.contact": "Contacto",
-                
-                // Hero
-                "hero.title": "Servicios Rápidos y Confiables de Entrega en Motocicleta",
-                "hero.subtitle": "Entregando comida, productos, medicinas y transportando personas con rapidez y cuidado por toda la ciudad.",
-                "hero.button": "Contáctame",
-                
-                // Services
-                "services.title": "Nuestros Servicios",
-                "services.food.title": "Entrega de Comida",
-                "services.food.desc": "Recibe tus comidas favoritas entregadas calientes y frescas desde los restaurantes a tu puerta en tiempo récord.",
-                "services.product.title": "Entrega de Productos",
-                "services.product.desc": "Entrega rápida y segura de paquetes, documentos y otros artículos por toda la ciudad.",
-                "services.medicine.title": "Entrega de Medicinas",
-                "services.medicine.desc": "Entregas urgentes de farmacia cuando más las necesitas, con manejo cuidadoso garantizado.",
-                "services.transport.title": "Transporte de Personas",
-                "services.transport.desc": "Servicio de transporte en motocicleta seguro y cómodo para desplazamientos rápidos por la ciudad.",
-                
-                // About
-                "about.title": "Sobre Mí",
-                "about.subtitle": "Tu Conductor de Confianza en la Ciudad",
-                "about.text1": "Con años de experiencia navegando por las calles de la ciudad, ofrezco servicios de entrega y transporte rápidos, confiables y asequibles para satisfacer todas tus necesidades.",
-                "about.text2": "Entiendo la importancia de las entregas puntuales y el transporte seguro, por eso priorizo la eficiencia y el cuidado en cada servicio que ofrezco.",
-                "about.text3": "Ya sea tu almuerzo, documentos importantes, medicinas urgentes o necesitas un viaje rápido por la ciudad, puedes contar conmigo para llevarte a ti o tus artículos donde necesiten estar.",
-                "about.button": "Contáctame",
-                
-                // Testimonials
-                "testimonials.title": "Lo que Dicen los Clientes",
-                "testimonials.1.quote": "\"¡Servicio increíble! Mi comida llegó caliente y fresca en solo 15 minutos. ¡Altamente recomendado para entregas rápidas!\"",
-                "testimonials.1.role": "Cliente Regular",
-                "testimonials.2.quote": "\"Me salvó en una emergencia entregando mi medicina cuando estaba enfermo. Servicio profesional y confiable.\"",
-                "testimonials.2.role": "Entrega de Medicina",
-                "testimonials.3.quote": "\"La forma más rápida de cruzar la ciudad en hora pico. Siempre puntual y un conductor seguro.\"",
-                "testimonials.3.role": "Cliente de Transporte",
-                
-                // Contact
-                "contact.title": "Contáctame",
-                "contact.info.title": "Información de Contacto",
-                "contact.info.text": "¿Listo para reservar una entrega o transporte? Contáctame directamente para un servicio rápido.",
-                "contact.info.location": "Agadir, Marruecos",
-                
-                // Form
-                "form.name": "Tu Nombre Completo",
-                "form.email": "Tu Email (opcional)",
-                "form.phone": "Tu Número de Teléfono (requerido)",
-                "form.message": "Detalles de tu entrega (dirección, artículos, hora necesaria)",
-                "form.button": "Enviar Solicitud",
-                "form.success": "¡Mensaje enviado! Te contactaré pronto.",
-                "form.whatsapp.text": "Para solicitudes urgentes:",
-                "form.whatsapp.button": "Chatear por WhatsApp",
-                
-                // Footer
-                "footer.tagline": "Servicios de Motocicleta Rápidos, Confiables y Profesionales",
-                "footer.rights": "Todos los derechos reservados.",
-                
-                // Mobile
-                "mobile.call": "Llamar Ahora",
-                
-                // Popup
-                "popup.title": "Elige tu Idioma",
-                "popup.text": "Bienvenido a AgadirRush. Por favor selecciona tu idioma preferido."
-                   es: {
-    // ... all existing Spanish translations ...
-    "form.urgent.text": "Para solicitudes urgentes:",
-    "form.call.button": "Llamar ahora"
-
+                "contact.info.title": "تواصل معنا",
+                "contact.info.text": "متاح 24/7 في أكادير",
+                "contact.location": "أكادير، المغرب",
+                "form.service": "اختر الخدمة",
+                "form.food": "توصيل طعام",
+                "form.nurse": "خدمة تمريض",
+                "form.name": "اسمك",
+                "form.phone": "رقم الهاتف",
+                "form.message": "رسالتك",
+                "form.submit": "إرسال الطلب",
+                "footer.tagline": "توصيل سريع وتمريض منزلي في أكادير",
+                "footer.rights": "جميع الحقوق محفوظة"
             }
         };
 
-        // Language detection and setting
-        document.addEventListener('DOMContentLoaded', function() {
-            // Set current year in footer
-            document.getElementById('currentYear').textContent = new Date().getFullYear();
-            
-            // Check for stored language preference
-            const storedLang = localStorage.getItem('preferredLanguage');
-            const browserLang = navigator.language.substring(0, 2);
-            const supportedLangs = ['en', 'fr', 'ar', 'es'];
-            
-            // Determine initial language
-            let initialLang = 'en'; // default
-            
-            if (storedLang && supportedLangs.includes(storedLang)) {
-                initialLang = storedLang;
-            } else if (supportedLangs.includes(browserLang)) {
-                initialLang = browserLang;
-            }
-            
-            // Check if this is first visit (no stored language)
-            if (!storedLang) {
-                setTimeout(() => {
-                    document.getElementById('languagePopup').classList.add('show');
-                }, 1000);
-            }
-            
-            // Set initial language
-            setLanguage(initialLang);
-            
-            // Initialize language selector flag
-            updateLanguageFlag(initialLang);
-        });
-        
+        // Language System
         function setLanguage(lang) {
-            // Set HTML lang attribute and direction for Arabic
             document.documentElement.lang = lang;
             if (lang === 'ar') {
-                document.documentElement.dir = 'rtl';
+                document.body.classList.add('rtl');
             } else {
-                document.documentElement.dir = 'ltr';
+                document.body.classList.remove('rtl');
             }
             
-            // Store preference
-            localStorage.setItem('preferredLanguage', lang);
+            // Update flag
+            document.getElementById('currentLangFlag').src = 
+                lang === 'ar' ? 'https://flagcdn.com/w40/ma.png' :
+                lang === 'fr' ? 'https://flagcdn.com/w40/fr.png' :
+                'https://flagcdn.com/w40/gb.png';
             
-            // Update all translatable elements
-            const translatableElements = document.querySelectorAll('[data-translate]');
-            translatableElements.forEach(el => {
+            // Update content
+            document.querySelectorAll('[data-translate]').forEach(el => {
                 const key = el.getAttribute('data-translate');
-                if (translations[lang] && translations[lang][key]) {
-                    if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
-                        el.placeholder = translations[lang][key];
-                    } else {
-                        el.textContent = translations[lang][key];
-                    }
+                if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA' || el.tagName === 'SELECT') {
+                    el.placeholder = translations[lang][key] || el.placeholder;
+                } else if (el.tagName === 'OPTION') {
+                    el.textContent = translations[lang][key] || el.textContent;
+                } else {
+                    el.textContent = translations[lang][key] || el.textContent;
                 }
             });
             
-            // Update popup content if shown
-            if (translations[lang] && translations[lang]['popup.title']) {
-                document.getElementById('popupTitle').textContent = translations[lang]['popup.title'];
-                document.getElementById('popupText').textContent = translations[lang]['popup.text'];
-            }
-            
-            // Update URL without reloading
-            const newUrl = window.location.pathname.replace(/^\/(en|fr|ar|es)\//, '/') + lang + '/';
-            if (!window.location.pathname.includes('/' + lang + '/')) {
-                window.history.pushState({}, '', newUrl);
-            }
-            
-            // Update language flag
-            updateLanguageFlag(lang);
-            
-            // Hide popup if visible
-            document.getElementById('languagePopup').classList.remove('show');
-            document.getElementById('languageDropdown').classList.remove('show');
+            localStorage.setItem('agadirrush_lang', lang);
         }
-        
-        function toggleLanguageDropdown() {
-            document.getElementById('languageDropdown').classList.toggle('show');
-        }
-        
-        function updateLanguageFlag(lang) {
-            const flagMap = {
-                'en': 'gb',
-                'fr': 'fr',
-                'ar': 'ma',
-                'es': 'es'
-            };
-            document.getElementById('currentLanguageFlag').src = `https://flagcdn.com/w40/${flagMap[lang]}.png`;
-        }
-        
-        function showSuccess() {
-            const successDiv = document.getElementById('form-success');
-            successDiv.style.display = 'block';
-            successDiv.scrollIntoView({ behavior: 'smooth' });
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            // Set language
+            const savedLang = localStorage.getItem('agadirrush_lang') || 
+                             (navigator.language.startsWith('ar') ? 'ar' : 
+                              navigator.language.startsWith('fr') ? 'fr' : 'en');
+            setLanguage(savedLang);
             
-            // Hide after 5 seconds
-            setTimeout(() => {
-                successDiv.style.display = 'none';
-            }, 5000);
-        }
+            // Language button click
+            document.getElementById('langBtn').addEventListener('click', () => {
+                const currentLang = document.documentElement.lang;
+                const newLang = currentLang === 'en' ? 'fr' : 
+                               currentLang === 'fr' ? 'ar' : 'en';
+                setLanguage(newLang);
+            });
+            
+            // Current year
+            document.getElementById('currentYear').textContent = new Date().getFullYear();
+            
+            // Smooth scrolling
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+        });
     </script>
-    
-<script>
-  // Language detection with priority:
-  // 1. URL parameter (?lang=es)
-  // 2. sessionStorage (tempLang)
-  // 3. localStorage (preferredLanguage)
-  // 4. Browser language
-  // 5. Default to English
-  
-  const urlLang = new URLSearchParams(window.location.search).get('lang');
-  const tempLang = sessionStorage.getItem('tempLang');
-  const storedLang = localStorage.getItem('preferredLanguage');
-  const browserLang = navigator.language.substring(0, 2);
-  const supported = ['ar', 'fr', 'es', 'en'];
-
-  let lang = 'en'; // Default
-  
-  if (urlLang && supported.includes(urlLang)) {
-    lang = urlLang;
-  } else if (tempLang && supported.includes(tempLang)) {
-    lang = tempLang;
-    sessionStorage.removeItem('tempLang'); // Clean up
-  } else if (storedLang && supported.includes(storedLang)) {
-    lang = storedLang;
-  } else if (supported.includes(browserLang)) {
-    lang = browserLang;
-  }
-
-  // Apply language
-  setLanguage(lang);
-  updateLanguageFlag(lang);
-
-  // Clean URL after loading (e.g., /?lang=es → /es/)
-  if (urlLang) {
-    history.replaceState({}, '', '/' + lang + '/');
-  }
-</script>
-    
 </body>
 </html>
