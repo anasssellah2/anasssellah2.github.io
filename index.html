@@ -401,6 +401,24 @@
             margin-right: 0;
             margin-left: 15px;
         }
+        .about-text ul {
+    list-style: none;
+    margin: 25px 0;
+    padding: 0;
+}
+.about-text li {
+    margin-bottom: 15px;
+    position: relative;
+    padding-left: 35px;
+    line-height: 1.5;
+}
+.about-text li i {
+    position: absolute;
+    left: 0;
+    color: var(--secondary);
+    width: 25px;
+    text-align: center;
+}
         @media (max-width: 768px) {
             nav ul {
                 gap: 15px;
@@ -506,25 +524,25 @@
 
     <!-- About Section -->
     <section class="about" id="about">
-        <div class="container">
-            <h2 class="section-title" data-translate="about.title">About Us</h2>
-            <div class="about-content">
-                <div class="about-text">
-    <h2 data-translate="about.subtitle">أكادير رش - ريادة في التوصيل السريع والرعاية الصحية المتنقلة</h2>
-    <p data-translate="about.text1">نقدم في أكادير رش حلولاً متكاملة تجمع بين السرعة والدقة...</p>
-    <ul>
-        <li data-translate="about.feature1">توصيل طلباتك في أقل من 30 دقيقة</li>
-        <li data-translate="about.feature2">رعاية طبية منزلية بإشراف أطباء متخصصين</li>
-        <li data-translate="about.feature3">نظام تتبع ذكي لمتابعة طلباتك</li>
-    </ul>
-    <a href="#contact" class="btn" data-translate="about.button">اتصل بنا</a>
-</div>
-                <div class="about-img">
-                    <img src="https://images.unsplash.com/photo-1558981806-ec527fa84c39?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Our Team">
-                </div>
+    <div class="container">
+        <h2 class="section-title" data-translate="about.title">About Us</h2>
+        <div class="about-content">
+            <div class="about-text">
+                <h2 data-translate="about.subtitle">AgadirRush - Pioneering Fast Delivery & Mobile Healthcare</h2>
+                <p data-translate="about.text1">At AgadirRush, we provide integrated solutions combining speed and precision in delivery and professional home healthcare.</p>
+                <ul>
+                    <li><i class="fas fa-bolt"></i> <span data-translate="about.feature1">Delivery in under 30 minutes with quality assurance</span></li>
+                    <li><i class="fas fa-user-md"></i> <span data-translate="about.feature2">Home healthcare supervised by specialists</span></li>
+                    <li><i class="fas fa-map-marker-alt"></i> <span data-translate="about.feature3">Smart tracking system for real-time updates</span></li>
+                </ul>
+                <a href="#contact" class="btn" data-translate="about.button">Contact Us</a>
+            </div>
+            <div class="about-img">
+                <img src="https://images.unsplash.com/photo-1558981806-ec527fa84c39?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Our Team">
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
     <!-- Testimonials -->
     <section class="testimonials" id="testimonials">
@@ -632,163 +650,148 @@
     <script>
         // Translations
         const translations = {
-            en: {
-                "nav.home": "Home",
-                "nav.services": "Services",
-                "nav.about": "About",
-                "nav.testimonials": "Reviews",
-                "nav.contact": "Contact",
-                "hero.title": "Fast Delivery & Nursing in Agadir",
-                "hero.subtitle": "Motorcycle delivery and professional home nursing services",
-                "hero.btn_delivery": "Order Delivery",
-                "hero.btn_nurse": "Request Nurse",
-                "services.title": "Our Services",
-                "services.food.title": "Food Delivery",
-                "services.food.desc": "Fast delivery from restaurants",
-                "services.product.title": "Product Delivery",
-                "services.product.desc": "Secure delivery across Agadir",
-                "services.medicine.title": "Medicine Delivery",
-                "services.medicine.desc": "Urgent pharmacy deliveries",
-                "services.nurse.title": "Home Nurse",
-                "services.nurse.desc": "Professional medical care at home",
-                "services.order": "Order Now",
-                "services.nurse.call": "Call Nurse",
-                "about.title": "About Us",
-                "about.subtitle": "Your Trusted Service in Agadir",
-                "about.text1": "With years of experience in Agadir...",
-                "about.text2": "We understand the importance...",
-                "about.text3": "Whether it's food delivery...",
-                "about.button": "Contact Us",
-                "testimonials.title": "Client Reviews",
-                "testimonials.1.quote": "\"Amazing delivery service! My food arrived in just 20 minutes.\"",
-                "testimonials.1.role": "Food Delivery",
-                "testimonials.2.quote": "\"The nurse was professional and helped my mother recover quickly.\"",
-                "testimonials.2.role": "Nursing Service",
-                "contact.title": "Contact Us",
-                "contact.info.title": "Get In Touch",
-                "contact.info.text": "Available 24/7 in Agadir",
-                "contact.location": "Agadir, Morocco",
-                "form.service": "Select Service",
-                "form.food": "Food Delivery",
-                "form.nurse": "Nurse Service",
-                "form.name": "Your Name",
-                "form.phone": "Phone Number",
-                "form.message": "Your Message",
-                "form.submit": "Send Request",
-                "footer.tagline": "Fast Delivery & Nursing in Agadir",
-                "footer.rights": "All Rights Reserved"
-                "about.subtitle": "AgadirRush - Pioneering Fast Delivery & Mobile Healthcare",
-    "about.text1": "At AgadirRush, we provide integrated solutions combining speed and precision in delivery and professional home healthcare.",
-    "about.feature1": "Delivery in under 30 minutes with quality assurance",
-    "about.feature2": "Home healthcare supervised by specialists",
-    "about.feature3": "Smart tracking system for real-time updates",
-    "about.button": "Contact Us"
-            },
-            fr: {
-                "nav.home": "Accueil",
-                "nav.services": "Services",
-                "nav.about": "À propos",
-                "nav.testimonials": "Avis",
-                "nav.contact": "Contact",
-                "hero.title": "Livraison Rapide & Infirmière à Agadir",
-                "hero.subtitle": "Livraison par moto et services infirmiers à domicile",
-                "hero.btn_delivery": "Commander",
-                "hero.btn_nurse": "Infirmière",
-                "services.title": "Nos Services",
-                "services.food.title": "Livraison Nourriture",
-                "services.food.desc": "Livraison rapide de restaurants",
-                "services.product.title": "Livraison Produits",
-                "services.product.desc": "Livraison sécurisée à Agadir",
-                "services.medicine.title": "Livraison Médicaments",
-                "services.medicine.desc": "Livraison urgente de pharmacie",
-                "services.nurse.title": "Infirmière à Domicile",
-                "services.nurse.desc": "Soins médicaux professionnels",
-                "services.order": "Commander",
-                "services.nurse.call": "Appeler Infirmière",
-                "about.title": "À propos",
-                "about.subtitle": "Votre Service de Confiance à Agadir",
-                "about.text1": "Avec des années d'expérience à Agadir...",
-                "about.text2": "Nous comprenons l'importance...",
-                "about.text3": "Que ce soit la livraison...",
-                "about.button": "Contactez-nous",
-                "testimonials.title": "Avis Clients",
-                "testimonials.1.quote": "\"Service de livraison incroyable ! Ma nourriture est arrivée en 20 minutes.\"",
-                "testimonials.1.role": "Livraison Nourriture",
-                "testimonials.2.quote": "\"L'infirmière était professionnelle et a aidé ma mère à se rétablir rapidement.\"",
-                "testimonials.2.role": "Service Infirmier",
-                "contact.title": "Contactez-nous",
-                "contact.info.title": "Contact",
-                "contact.info.text": "Disponible 24/7 à Agadir",
-                "contact.location": "Agadir, Maroc",
-                "form.service": "Choisir Service",
-                "form.food": "Livraison Nourriture",
-                "form.nurse": "Service Infirmier",
-                "form.name": "Votre Nom",
-                "form.phone": "Téléphone",
-                "form.message": "Votre Message",
-                "form.submit": "Envoyer",
-                "footer.tagline": "Livraison Rapide & Infirmière à Agadir",
-                "footer.rights": "Tous droits réservés"
-                "about.subtitle": "AgadirRush - Leader en Livraison Rapide et Soins à Domicile",
-    "about.text1": "Chez AgadirRush, nous offrons des solutions intégrées alliant rapidité et précision pour la livraison et les soins à domicile.",
-    "about.feature1": "Livraison en moins de 30 minutes",
-    "about.feature2": "Soins médicaux à domicile supervisés",
-    "about.feature3": "Système de suivi intelligent",
-    "about.button": "Nous Contacter"
-            },
-            ar: {
-                "nav.home": "الرئيسية",
-                "nav.services": "الخدمات",
-                "nav.about": "من نحن",
-                "nav.testimonials": "آراء العملاء",
-                "nav.contact": "اتصل بنا",
-                "hero.title": "توصيل سريع وتمريض منزلي في أكادير",
-                "hero.subtitle": "خدمة توصيل بالدراجة النارية وتمريض منزلي محترف",
-                "hero.btn_delivery": "طلب توصيل",
-                "hero.btn_nurse": "طلب ممرض",
-                "services.title": "خدماتنا",
-                "services.food.title": "توصيل طعام",
-                "services.food.desc": "توصيل سريع من المطاعم",
-                "services.product.title": "توصيل منتجات",
-                "services.product.desc": "توصيل آمن في أكادير",
-                "services.medicine.title": "توصيل أدوية",
-                "services.medicine.desc": "توصيل صيدليات عاجل",
-                "services.nurse.title": "تمريض منزلي",
-                "services.nurse.desc": "رعاية طبية منزلية محترفة",
-                "services.order": "اطلب الآن",
-                "services.nurse.call": "اتصل بالممرض",
-                "about.title": "من نحن",
-                "about.subtitle": "خدمتكم الموثوقة في أكادير",
-                "about.text1": "بخبرة سنوات في أكادير...",
-                "about.text2": "نحن ندرك أهمية...",
-                "about.text3": "سواء كان توصيل طعام أو دواء أو أي منتج...",
-                "about.button": "اتصل بنا",
-                "testimonials.title": "آراء العملاء",
-                "testimonials.1.quote": "\"خدمة توصيل رائعة! وصل طعامي خلال 20 دقيقة فقط.\"",
-                "testimonials.1.role": "توصيل طعام",
-                "testimonials.2.quote": "\"الممرضة كانت محترفة وساعدت أمي على التعافي بسرعة.\"",
-                "testimonials.2.role": "خدمة تمريض",
-                "contact.title": "اتصل بنا",
-                "contact.info.title": "تواصل معنا",
-                "contact.info.text": "متاح 24/7 في أكادير",
-                "contact.location": "أكادير، المغرب",
-                "form.service": "اختر الخدمة",
-                "form.food": "توصيل طعام",
-                "form.nurse": "خدمة تمريض",
-                "form.name": "اسمك",
-                "form.phone": "رقم الهاتف",
-                "form.message": "رسالتك",
-                "form.submit": "إرسال الطلب",
-                "footer.tagline": "توصيل سريع وتمريض منزلي في أكادير",
-                "footer.rights": "جميع الحقوق محفوظة"
-                "about.subtitle": "أكادير رش - ريادة في التوصيل السريع والرعاية الصحية المتنقلة",
-    "about.text1": "نقدم في أكادير رش حلولاً متكاملة تجمع بين السرعة والدقة في التوصيل والرعاية الصحية المنزلية المحترفة.",
-    "about.feature1": "توصيل الطلبات في أقل من 30 دقيقة",
-    "about.feature2": "رعاية طبية منزلية بإشراف مختصين",
-    "about.feature3": "نظام تتبع ذكي للطلبات",
-    "about.button": "اتصل بنا"
-            }
-        };
+    en: {
+        "nav.home": "Home",
+        "nav.services": "Services",
+        "nav.about": "About",
+        "nav.testimonials": "Reviews",
+        "nav.contact": "Contact",
+        "hero.title": "Fast Delivery & Nursing in Agadir",
+        "hero.subtitle": "Motorcycle delivery and professional home nursing services",
+        "hero.btn_delivery": "Order Delivery",
+        "hero.btn_nurse": "Request Nurse",
+        "services.title": "Our Services",
+        "services.food.title": "Food Delivery",
+        "services.food.desc": "Fast delivery from restaurants",
+        "services.product.title": "Product Delivery",
+        "services.product.desc": "Secure delivery across Agadir",
+        "services.medicine.title": "Medicine Delivery",
+        "services.medicine.desc": "Urgent pharmacy deliveries",
+        "services.nurse.title": "Home Nurse",
+        "services.nurse.desc": "Professional medical care at home",
+        "services.order": "Order Now",
+        "services.nurse.call": "Call Nurse",
+        "about.title": "About Us",
+        "about.subtitle": "AgadirRush - Pioneering Fast Delivery & Mobile Healthcare",
+        "about.text1": "At AgadirRush, we provide integrated solutions combining speed and precision in delivery and professional home healthcare.",
+        "about.feature1": "Delivery in under 30 minutes with quality assurance",
+        "about.feature2": "Home healthcare supervised by specialists",
+        "about.feature3": "Smart tracking system for real-time updates",
+        "about.button": "Contact Us",
+        "testimonials.title": "Client Reviews",
+        "testimonials.1.quote": "\"Amazing delivery service! My food arrived in just 20 minutes.\"",
+        "testimonials.1.role": "Food Delivery",
+        "testimonials.2.quote": "\"The nurse was professional and helped my mother recover quickly.\"",
+        "testimonials.2.role": "Nursing Service",
+        "contact.title": "Contact Us",
+        "contact.info.title": "Get In Touch",
+        "contact.info.text": "Available 24/7 in Agadir",
+        "contact.location": "Agadir, Morocco",
+        "form.service": "Select Service",
+        "form.food": "Food Delivery",
+        "form.nurse": "Nurse Service",
+        "form.name": "Your Name",
+        "form.phone": "Phone Number",
+        "form.message": "Your Message",
+        "form.submit": "Send Request",
+        "footer.tagline": "Fast Delivery & Nursing in Agadir",
+        "footer.rights": "All Rights Reserved"
+    },
+    fr: {
+        "nav.home": "Accueil",
+        "nav.services": "Services",
+        "nav.about": "À propos",
+        "nav.testimonials": "Avis",
+        "nav.contact": "Contact",
+        "hero.title": "Livraison Rapide & Infirmière à Agadir",
+        "hero.subtitle": "Livraison par moto et services infirmiers à domicile",
+        "hero.btn_delivery": "Commander",
+        "hero.btn_nurse": "Infirmière",
+        "services.title": "Nos Services",
+        "services.food.title": "Livraison Nourriture",
+        "services.food.desc": "Livraison rapide de restaurants",
+        "services.product.title": "Livraison Produits",
+        "services.product.desc": "Livraison sécurisée à Agadir",
+        "services.medicine.title": "Livraison Médicaments",
+        "services.medicine.desc": "Livraison urgente de pharmacie",
+        "services.nurse.title": "Infirmière à Domicile",
+        "services.nurse.desc": "Soins médicaux professionnels",
+        "services.order": "Commander",
+        "services.nurse.call": "Appeler Infirmière",
+        "about.title": "À propos",
+        "about.subtitle": "AgadirRush - Leader en Livraison Rapide et Soins à Domicile",
+        "about.text1": "Chez AgadirRush, nous offrons des solutions intégrées alliant rapidité et précision pour la livraison et les soins à domicile.",
+        "about.feature1": "Livraison en moins de 30 minutes",
+        "about.feature2": "Soins médicaux à domicile supervisés",
+        "about.feature3": "Système de suivi intelligent",
+        "about.button": "Nous Contacter",
+        "testimonials.title": "Avis Clients",
+        "testimonials.1.quote": "\"Service de livraison incroyable ! Ma nourriture est arrivée en 20 minutes.\"",
+        "testimonials.1.role": "Livraison Nourriture",
+        "testimonials.2.quote": "\"L'infirmière était professionnelle et a aidé ma mère à se rétablir rapidement.\"",
+        "testimonials.2.role": "Service Infirmier",
+        "contact.title": "Contactez-nous",
+        "contact.info.title": "Contact",
+        "contact.info.text": "Disponible 24/7 à Agadir",
+        "contact.location": "Agadir, Maroc",
+        "form.service": "Choisir Service",
+        "form.food": "Livraison Nourriture",
+        "form.nurse": "Service Infirmier",
+        "form.name": "Votre Nom",
+        "form.phone": "Téléphone",
+        "form.message": "Votre Message",
+        "form.submit": "Envoyer",
+        "footer.tagline": "Livraison Rapide & Infirmière à Agadir",
+        "footer.rights": "Tous droits réservés"
+    },
+    ar: {
+        "nav.home": "الرئيسية",
+        "nav.services": "الخدمات",
+        "nav.about": "من نحن",
+        "nav.testimonials": "آراء العملاء",
+        "nav.contact": "اتصل بنا",
+        "hero.title": "توصيل سريع وتمريض منزلي في أكادير",
+        "hero.subtitle": "خدمة توصيل بالدراجة النارية وتمريض منزلي محترف",
+        "hero.btn_delivery": "طلب توصيل",
+        "hero.btn_nurse": "طلب ممرض",
+        "services.title": "خدماتنا",
+        "services.food.title": "توصيل طعام",
+        "services.food.desc": "توصيل سريع من المطاعم",
+        "services.product.title": "توصيل منتجات",
+        "services.product.desc": "توصيل آمن في أكادير",
+        "services.medicine.title": "توصيل أدوية",
+        "services.medicine.desc": "توصيل صيدليات عاجل",
+        "services.nurse.title": "تمريض منزلي",
+        "services.nurse.desc": "رعاية طبية منزلية محترفة",
+        "services.order": "اطلب الآن",
+        "services.nurse.call": "اتصل بالممرض",
+        "about.title": "من نحن",
+        "about.subtitle": "أكادير رش - ريادة في التوصيل السريع والرعاية الصحية المتنقلة",
+        "about.text1": "نقدم في أكادير رش حلولاً متكاملة تجمع بين السرعة والدقة في التوصيل والرعاية الصحية المنزلية المحترفة.",
+        "about.feature1": "توصيل الطلبات في أقل من 30 دقيقة",
+        "about.feature2": "رعاية طبية منزلية بإشراف مختصين",
+        "about.feature3": "نظام تتبع ذكي للطلبات",
+        "about.button": "اتصل بنا",
+        "testimonials.title": "آراء العملاء",
+        "testimonials.1.quote": "\"خدمة توصيل رائعة! وصل طعامي خلال 20 دقيقة فقط.\"",
+        "testimonials.1.role": "توصيل طعام",
+        "testimonials.2.quote": "\"الممرضة كانت محترفة وساعدت أمي على التعافي بسرعة.\"",
+        "testimonials.2.role": "خدمة تمريض",
+        "contact.title": "اتصل بنا",
+        "contact.info.title": "تواصل معنا",
+        "contact.info.text": "متاح 24/7 في أكادير",
+        "contact.location": "أكادير، المغرب",
+        "form.service": "اختر الخدمة",
+        "form.food": "توصيل طعام",
+        "form.nurse": "خدمة تمريض",
+        "form.name": "اسمك",
+        "form.phone": "رقم الهاتف",
+        "form.message": "رسالتك",
+        "form.submit": "إرسال الطلب",
+        "footer.tagline": "توصيل سريع وتمريض منزلي في أكادير",
+        "footer.rights": "جميع الحقوق محفوظة"
+    }
+};
 
         // Language System
         function setLanguage(lang) {
