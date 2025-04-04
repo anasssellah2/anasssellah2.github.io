@@ -35,6 +35,7 @@
         }
         body.rtl {
             font-family: 'Tajawal', 'Roboto', sans-serif;
+            direction: rtl;
             text-align: right;
         }
         .container {
@@ -421,20 +422,79 @@
     width: 25px;
     text-align: center;
 }
-        @media (max-width: 768px) {
+        /* Mobile Menu Styles */
+        .menu-toggle {
+            display: none;
+            cursor: pointer;
+            font-size: 24px;
+        }
+        
+        @media (max-width: 992px) {
+            .menu-toggle {
+                display: block;
+            }
+            
+            nav {
+                position: fixed;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background: var(--primary);
+                padding: 20px;
+                box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+                transform: translateY(-150%);
+                transition: transform 0.3s ease;
+                z-index: 999;
+            }
+            
+            nav.active {
+                transform: translateY(0);
+            }
+            
             nav ul {
+                flex-direction: column;
                 gap: 15px;
             }
+            
+            body.rtl nav ul {
+                padding-right: 20px;
+            }
+            
+            .header-container {
+                padding: 10px 20px;
+            }
+            
+            .hero {
+                padding-top: 120px;
+            }
+            
             .about-content {
                 grid-template-columns: 1fr;
             }
+            
             .call-buttons {
                 bottom: 20px;
                 right: 20px;
             }
+            
             .language-switcher {
                 bottom: 20px;
                 left: 20px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero-btns {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -444,7 +504,10 @@
     <header>
         <div class="container header-container">
             <a href="#" class="logo">Agadir<span>Rush</span></a>
-            <nav>
+            <div class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+            <nav id="mainNav">
                 <ul>
                     <li><a href="#home" data-translate="nav.home">Home</a></li>
                     <li><a href="#services" data-translate="nav.services">Services</a></li>
@@ -800,8 +863,10 @@
             document.documentElement.lang = lang;
             if (lang === 'ar') {
                 document.body.classList.add('rtl');
+                document.body.setAttribute('dir', 'rtl');
             } else {
                 document.body.classList.remove('rtl');
+                document.body.setAttribute('dir', 'ltr');
             }
             
             // Update flag
@@ -851,6 +916,24 @@
                     document.querySelector(this.getAttribute('href')).scrollIntoView({
                         behavior: 'smooth'
                     });
+                });
+            });
+            
+            // Mobile menu toggle
+            const menuToggle = document.querySelector('.menu-toggle');
+            const nav = document.querySelector('nav');
+            
+            menuToggle.addEventListener('click', () => {
+                nav.classList.toggle('active');
+                menuToggle.innerHTML = nav.classList.contains('active') ? 
+                    '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+            });
+            
+            // Close menu when clicking on a link
+            document.querySelectorAll('nav ul li a').forEach(link => {
+                link.addEventListener('click', () => {
+                    nav.classList.remove('active');
+                    menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
                 });
             });
         });
